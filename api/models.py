@@ -33,17 +33,18 @@ class Diagnosis(models.Model):
 
 class DecisionTree(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    version_number = models.PositiveIntegerField(unique=True)
+    version_number = models.PositiveIntegerField()
     published = models.BooleanField(default=False)
 
     provider = models.ForeignKey(Provider, null=True)
     diagnosis = models.ForeignKey(Diagnosis, null=True)
 
     def __unicode__(self):
-        return '%s (%s) v%d' % (
+        return '%s (%s) v%d %s' % (
                 self.diagnosis.name,
-                self.diagnosis.provider.slug,
-                self.version_number
+                self.provider.slug,
+                self.version_number,
+                "(PUB)" if self.published else ""
             )
 
     class Meta:
