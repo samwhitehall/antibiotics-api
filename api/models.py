@@ -5,7 +5,6 @@ class Provider(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
 
-    categories = models.ManyToManyField('Category')
     diagnosis = models.ManyToManyField('Diagnosis')
 
     def __unicode__(self):
@@ -24,9 +23,10 @@ class Category(models.Model):
 class Diagnosis(models.Model):
     slug = models.SlugField()
     name = models.CharField(max_length=100)
+    category = models.ForeignKey(Category, null=True)
 
     def __unicode__(self):
-        return self.name
+        return '%s/%s' (self.category, self.name)
 
     class Meta:
         verbose_name_plural = "diagnoses"
