@@ -1,3 +1,6 @@
 from django.contrib import admin
+from api.models import Provider, Category, Diagnosis
 
-# Register your models here.
+admin.site.register(Provider)
+admin.site.register(Category)
+admin.site.register(Diagnosis)
