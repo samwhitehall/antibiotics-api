@@ -5,9 +5,18 @@ class Provider(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
 
+    categories = models.ManyToManyField('Category')
+    diagnosis = models.ManyToManyField('Diagnosis')
+
+    def __unicode__(self):
+        return u'%s (%s)' % (self.name, self.slug)
+
 class Category(models.Model):
     slug = models.SlugField()
     name = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return self.name
 
     class Meta:
         verbose_name_plural = "categories"
@@ -16,8 +25,8 @@ class Diagnosis(models.Model):
     slug = models.SlugField()
     name = models.CharField(max_length=100)
 
-    provider = models.ForeignKey(Provider)
-    category = models.ForeignKey(Category)
+    def __unicode__(self):
+        return self.name
 
     class Meta:
         verbose_name_plural = "diagnoses"
@@ -27,7 +36,14 @@ class DecisionTree(models.Model):
     version_number = models.PositiveIntegerField(unique=True)
     published = models.BooleanField(default=False)
 
-    diagnosis = models.ForeignKey(Diagnosis)
+    provider = models.ForeignKey(Provider, null=True)
+
+    def __unicode__(self):
+        return '%s (%s) v%d' % (
+                self.diagnosis.name,
+                self.diagnosis.provider.slug,
+                self.version_number
+            )
 
     class Meta:
         verbose_name = "decision tree"
