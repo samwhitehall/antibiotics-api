@@ -26,7 +26,7 @@ class Diagnosis(models.Model):
     category = models.ForeignKey(Category, null=True)
 
     def __unicode__(self):
-        return '%s/%s' (self.category, self.name)
+        return '%s/%s' % (self.category, self.name)
 
     class Meta:
         verbose_name_plural = "diagnoses"
@@ -37,6 +37,7 @@ class DecisionTree(models.Model):
     published = models.BooleanField(default=False)
 
     provider = models.ForeignKey(Provider, null=True)
+    diagnosis = models.ForeignKey(Diagnosis, null=True)
 
     def __unicode__(self):
         return '%s (%s) v%d' % (
