@@ -3,12 +3,14 @@ from rest_framework import generics, permissions
 from api.serializers import LiveProviderSerializer
 from api.models import Provider
 
-class LiveProviderList(generics.ListCreateAPIView):
+class BaseProviderList(generics.ListCreateAPIView):
     model = Provider
-    serializer_class = LiveProviderSerializer
     permission_classes = [
         permissions.AllowAny
     ]
+
+class LiveProviderList(BaseProviderList):
+    serializer_class = LiveProviderSerializer
 
     def get_queryset(self):
         '''Filter () for providers with live DecisionTreeson Python, not SQL 
