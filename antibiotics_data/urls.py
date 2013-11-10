@@ -1,13 +1,13 @@
 from django.conf.urls import patterns, include, url
 from rest_framework import routers
 
-from api.rest import ProviderList
+from api.rest import LiveProviderList
 
 from django.contrib import admin
 admin.autodiscover()
 
 provider_urls = patterns('',
-    url(r'^', ProviderList.as_view(), name='provider-list')
+    url(r'^live/', LiveProviderList.as_view(), name='live-provider-list')
 )
 
 urlpatterns = patterns('',
