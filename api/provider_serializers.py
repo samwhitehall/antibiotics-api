@@ -1,4 +1,4 @@
-from api.models import Provider
+from api.models import Provider, Diagnosis
 from rest_framework import serializers
 
 class BaseProviderSerializer(serializers.ModelSerializer):

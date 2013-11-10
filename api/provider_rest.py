@@ -1,7 +1,6 @@
 from rest_framework import generics, permissions
-
-from api.serializers import LiveProviderSerializer, TestProviderSerializer
-from api.models import Provider
+from api.provider_serializers import LiveProviderSerializer, TestProviderSerializer
+from api.models import Provider, Diagnosis
 
 class BaseProviderList(generics.ListCreateAPIView):
     model = Provider

@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from rest_framework import routers
 
-from api.rest import LiveProviderList, TestProviderList
+from api.provider_rest import LiveProviderList, TestProviderList
 
 from django.contrib import admin
 admin.autodiscover()
