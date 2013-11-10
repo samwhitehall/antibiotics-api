@@ -5,7 +5,7 @@ class Provider(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
 
-    diagnosis = models.ManyToManyField('Diagnosis')
+    diagnoses = models.ManyToManyField('Diagnosis')
 
     def __unicode__(self):
         return u'%s (%s)' % (self.name, self.slug)
