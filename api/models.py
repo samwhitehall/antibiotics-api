@@ -7,8 +7,14 @@ class Provider(models.Model):
 
     diagnoses = models.ManyToManyField('Diagnosis')
 
+    @property
+    def any_live(self):
+        return any(dt.published 
+            for dt in DecisionTree.objects.filter(provider=self))
+
     def __unicode__(self):
         return u'%s (%s)' % (self.name, self.slug)
+
 
 class Category(models.Model):
     slug = models.SlugField()
