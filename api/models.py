@@ -12,6 +12,14 @@ class Provider(models.Model):
         return any(dt.published 
             for dt in DecisionTree.objects.filter(provider=self))
 
+    @property
+    def test_slug(self):
+        return '%s-test' % self.slug
+
+    @property
+    def test_name(self):
+        return 'TEST: %s' % self.name
+
     def __unicode__(self):
         return u'%s (%s)' % (self.name, self.slug)
 

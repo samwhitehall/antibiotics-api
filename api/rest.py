@@ -1,6 +1,6 @@
 from rest_framework import generics, permissions
 
-from api.serializers import LiveProviderSerializer
+from api.serializers import LiveProviderSerializer, TestProviderSerializer
 from api.models import Provider
 
 class BaseProviderList(generics.ListCreateAPIView):
@@ -16,3 +16,6 @@ class LiveProviderList(BaseProviderList):
         '''Filter () for providers with live DecisionTreeson Python, not SQL 
         end -- as this is a computed property, not a database field'''
         return (p for p in Provider.objects.all() if p.any_live)
+
+class TestProviderList(BaseProviderList):
+    serializer_class = TestProviderSerializer
