@@ -5,7 +5,7 @@ class Provider(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
 
-    diagnoses = models.ManyToManyField('Diagnosis')
+    diagnoses = models.ManyToManyField('Diagnosis', blank=True, null=True)
 
     @property
     def any_live(self):
