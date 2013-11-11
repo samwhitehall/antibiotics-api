@@ -53,6 +53,14 @@ class DecisionTree(models.Model):
     provider = models.ForeignKey(Provider, null=True)
     diagnosis = models.ForeignKey(Diagnosis, null=True)
 
+    @property
+    def version(self):
+        return DecisionTree.objects.filter(
+            provider=self.provider,
+            diagnosis=self.diagnosis,
+            created__lt=self.created
+        ).count() + 1
+
     def __unicode__(self):
         return '%s (%s) v%d %s' % (
                 self.diagnosis.name,
