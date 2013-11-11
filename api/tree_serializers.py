@@ -9,3 +9,8 @@ class TestTreeSerializer(serializers.ModelSerializer):
     class Meta:
         model = DecisionTree
         fields = ('diagnosis', 'category', 'version', )
+
+class IndividualTreeSerializer(serializers.ModelSerializer):
+    class Meta:
+       model = DecisionTree
+       fields = ('created', 'published')

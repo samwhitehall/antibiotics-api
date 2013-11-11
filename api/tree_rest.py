@@ -1,5 +1,9 @@
+from django.http import Http404
 from rest_framework import generics, permissions
-from api.tree_serializers import TestTreeSerializer
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+from api.tree_serializers import TestTreeSerializer, IndividualTreeSerializer
 from api.models import DecisionTree, Provider, Diagnosis
 
 class BaseTreeList(generics.ListCreateAPIView):
@@ -33,3 +37,15 @@ class TestTreeList(BaseTreeList):
 class LiveTreeList(BaseTreeList):
     class Meta:
         published_only = True
+
+class IndividualTree(APIView):
+    def get_object(self, pk):
+        try:
+            return DecisionTree.objects.get(pk=pk)
+        except DecisionTree.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        tree = self.get_object(pk)
+        serializer = IndividualTreeSerializer(tree)
+        return Response(serializer.data)
