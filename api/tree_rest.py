@@ -10,7 +10,8 @@ class TestTreeList(generics.ListCreateAPIView):
     ]
 
     def get_queryset(self):
-        provider = Provider.objects.get(slug='suht')
+        provider_slug = self.kwargs['provider']
+        provider = Provider.objects.get(slug=provider_slug)
         provider_trees = DecisionTree.objects.filter(provider=provider)
 
         test_trees = []

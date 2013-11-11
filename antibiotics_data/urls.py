@@ -14,8 +14,7 @@ provider_urls = patterns('',
 )
 
 data_urls = patterns('',
-    url(r'^', TestTreeList.as_view(), name='test-tree-list'),
-    #url(r'^(?P<slug>[a-z]+)$', LiveDiagnosisList.as_view(), name='live-diagnosis-list'),
+    url(r'^(?P<provider>[a-z]+)$', TestTreeList.as_view(), name='test-tree-list'),
 )
 
 urlpatterns = patterns('',
