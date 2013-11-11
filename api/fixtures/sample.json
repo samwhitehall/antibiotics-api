@@ -3,9 +3,8 @@
     "pk": 1, 
     "model": "api.provider", 
     "fields": {
-        "description": "University Hospital Southampton NHS Foundation Trust provides services to some 1.3 million people living in Southampton and south Hampshire, plus specialist services such as neurosciences, cardiac services and children's intensive care to more than 3 million people in central southern England and the Channel Islands.\r\n\r\nThe Trust is also a major centre for teaching and research in association with the University of Southampton and partners including the Medical Research Council and Wellcome Trust.", 
+        "description": "University Hospital Southampton NHS Foundation Trust provides services to some 1.3 million people living in Southampton and south Hampshire, plus specialist services such as neurosciences, cardiac services and children's intensive care to more than 3 million people in central southern England and the Channel Islands.", 
         "slug": "suht", 
-        "diagnosis": [], 
         "name": "Southampton University Hospital Trust"
     }
 },
@@ -14,8 +13,7 @@
     "model": "api.provider", 
     "fields": {
         "description": "Portsmouth Hospitals NHS Trust provides a range of acute services at Queen Alexandra Hospital.", 
-        "slug": "pht", 
-        "diagnosis": [], 
+        "slug": "phnt", 
         "name": "Portsmouth Hospitals NHS Trust"
     }
 },
@@ -66,44 +64,50 @@
     "pk": 1, 
     "model": "api.decisiontree", 
     "fields": {
-        "version_number": 1, 
         "published": true, 
         "provider": 1, 
         "diagnosis": 1, 
-        "created": "2013-11-09T15:49:15.503Z"
+        "created": "2013-11-11T22:12:08.607Z"
     }
 },
 {
     "pk": 2, 
     "model": "api.decisiontree", 
     "fields": {
-        "version_number": 2, 
         "published": false, 
         "provider": 1, 
         "diagnosis": 1, 
-        "created": "2013-11-09T15:49:29.404Z"
+        "created": "2013-11-11T22:12:21.975Z"
     }
 },
 {
     "pk": 3, 
     "model": "api.decisiontree", 
     "fields": {
-        "version_number": 1, 
         "published": true, 
         "provider": 1, 
         "diagnosis": 2, 
-        "created": "2013-11-09T15:50:19.225Z"
+        "created": "2013-11-11T22:13:28.227Z"
     }
 },
 {
     "pk": 4, 
     "model": "api.decisiontree", 
     "fields": {
-        "version_number": 1, 
         "published": false, 
         "provider": 1, 
         "diagnosis": 3, 
-        "created": "2013-11-09T15:53:21.405Z"
+        "created": "2013-11-11T22:13:39.212Z"
+    }
+},
+{
+    "pk": 5, 
+    "model": "api.decisiontree", 
+    "fields": {
+        "published": false, 
+        "provider": 2, 
+        "diagnosis": 1, 
+        "created": "2013-11-11T22:14:28.199Z"
     }
 }
 ]

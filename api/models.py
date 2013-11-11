@@ -5,8 +5,6 @@ class Provider(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
 
-    diagnoses = models.ManyToManyField('Diagnosis', blank=True, null=True)
-
     @property
     def any_live(self):
         return any(dt.published 
@@ -46,8 +44,7 @@ class Diagnosis(models.Model):
         verbose_name_plural = "diagnoses"
 
 class DecisionTree(models.Model):
-    created = models.DateTimeField(auto_now_add=True)
-    version_number = models.PositiveIntegerField(unique=True)
+    created = models.DateTimeField(auto_now_add=True, unique=True)
     published = models.BooleanField(default=False)
 
     provider = models.ForeignKey(Provider, null=True)
@@ -65,7 +62,7 @@ class DecisionTree(models.Model):
         return '%s (%s) v%d %s' % (
                 self.diagnosis.name,
                 self.provider.slug,
-                self.version_number,
+                self.version,
                 "(PUB)" if self.published else ""
             )
 
