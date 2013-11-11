@@ -47,7 +47,7 @@ class Diagnosis(models.Model):
 
 class DecisionTree(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    version_number = models.PositiveIntegerField()
+    version_number = models.PositiveIntegerField(unique=True)
     published = models.BooleanField(default=False)
 
     provider = models.ForeignKey(Provider, null=True)

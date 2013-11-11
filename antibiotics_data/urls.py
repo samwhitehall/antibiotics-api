@@ -3,6 +3,7 @@ from rest_framework import routers
 
 from api.provider_rest import LiveProviderList, TestProviderList
 from api.diagnosis_rest import LiveDiagnosisList
+from api.tree_rest import TestTreeList
 
 from django.contrib import admin
 admin.autodiscover()
@@ -13,7 +14,8 @@ provider_urls = patterns('',
 )
 
 data_urls = patterns('',
-    url(r'^(?P<slug>[a-z]+)$', LiveDiagnosisList.as_view(), name='live-diagnosis-list'),
+    url(r'^', TestTreeList.as_view(), name='test-tree-list'),
+    #url(r'^(?P<slug>[a-z]+)$', LiveDiagnosisList.as_view(), name='live-diagnosis-list'),
 )
 
 urlpatterns = patterns('',
