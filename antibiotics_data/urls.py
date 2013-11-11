@@ -14,7 +14,7 @@ provider_urls = patterns('',
 )
 
 data_urls = patterns('',
-    url(r'^(?P<provider>[a-z]+)/live$', LiveTreeList.as_view(), name='test-tree-list'),
+    url(r'^(?P<provider>[a-z]+)/live$', LiveTreeList.as_view(), name='live-tree-list'),
     url(r'^(?P<provider>[a-z]+)/test$', TestTreeList.as_view(), name='test-tree-list'),
 )
 

@@ -15,7 +15,6 @@ class BaseTreeList(generics.ListCreateAPIView):
         provider_trees = DecisionTree.objects.filter(provider=provider)
 
         if(self.Meta.published_only):
-            print "HELLO"
             provider_trees = provider_trees.filter(published=True)
 
         diagnoses = {tree.diagnosis for tree in provider_trees}
