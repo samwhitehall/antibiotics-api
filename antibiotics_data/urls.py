@@ -16,7 +16,11 @@ provider_urls = patterns('',
 data_urls = patterns('',
     url(r'^(?P<provider>[a-z]+)/live$', LiveTreeList.as_view(), name='live-tree-list'),
     url(r'^(?P<provider>[a-z]+)/test$', TestTreeList.as_view(), name='test-tree-list'),
-    url(r'^tree/(?P<pk>[0-9]+)$', IndividualTree.as_view(), name='individual-tree'),
+    url(r'^tree/' \
+            '(?P<provider>[a-z-]+)/' \
+            '(?P<category>[a-z-]+)/' \
+            '(?P<diagnosis>[a-z-]+)$', 
+        IndividualTree.as_view(), name='individual-tree'),
 )
 
 urlpatterns = patterns('',

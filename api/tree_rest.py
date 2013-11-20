@@ -39,13 +39,16 @@ class LiveTreeList(BaseTreeList):
         published_only = True
 
 class IndividualTree(APIView):
-    def get_object(self, pk):
+    def get_object(self, provider, category, diagnosis):
         try:
-            return DecisionTree.objects.get(pk=pk)
+            return DecisionTree.objects.filter(
+                provider__slug=provider,
+                diagnosis__category__slug=category,
+                diagnosis__slug=diagnosis)[0]
         except DecisionTree.DoesNotExist:
             raise Http404
 
-    def get(self, request, pk, format=None):
-        tree = self.get_object(pk)
+    def get(self, request, provider, category, diagnosis, format=None):
+        tree = self.get_object(provider, category, diagnosis)
         serializer = IndividualTreeSerializer(tree)
         return Response(serializer.data)

@@ -1,5 +1,7 @@
 from django.db import models
 
+#TODO: slugs should be unique
+
 class Provider(models.Model):
     slug = models.SlugField()
     name = models.CharField(max_length=100)
