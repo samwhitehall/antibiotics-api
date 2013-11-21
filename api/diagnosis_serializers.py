@@ -9,25 +9,21 @@ class BaseTreeListingSerializer(serializers.ModelSerializer):
     version = serializers.Field(source='version')
     path = serializers.SerializerMethodField('get_tree_path')
 
+    def get_tree_path(self, tree):
+        # TODO: investigate why tree is sometimes None
+        if tree:
+            return reverse(self.url_name, kwargs = {
+                'provider' : tree.provider.slug,
+                'category' : tree.diagnosis.category.slug,
+                'diagnosis' : tree.diagnosis.slug 
+            })
+
     class Meta:
         model = DecisionTree
         fields = ('path', 'category', 'diagnosis', 'version' )
 
 class LiveTreeSerializer(BaseTreeListingSerializer):
-    def get_tree_path(self, tree):
-        # TODO: investigate why tree is sometimes None
-        if tree:
-            provider_slug = tree.provider.slug
-            category_slug = tree.diagnosis.category.slug
-            diagnosis_slug = tree.diagnosis.slug
-
-            return reverse('live-individual-tree', kwargs = {
-                'provider' : provider_slug,
-                'category' : category_slug,
-                'diagnosis' : diagnosis_slug
-            })
+    BaseTreeListingSerializer.url_name = 'live-individual-tree'
 
 class TestTreeSerializer(BaseTreeListingSerializer):
-    def get_tree_path(self, tree):
-       return 'test' 
-
+    BaseTreeListingSerializer.url_name = 'test-individual-tree'
