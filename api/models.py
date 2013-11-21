@@ -70,3 +70,17 @@ class DecisionTree(models.Model):
 
     class Meta:
         verbose_name = "decision tree"
+
+class Question(models.Model):
+    qid = models.CharField(unique=True, max_length=30)
+    text = models.TextField()
+
+    def __unicode__(self):
+        return '(%s) %s' % (self.qid, self.text[:30])
+
+class Treatment(models.Model):
+    tid = models.CharField(unique=True, max_length=30)
+    text = models.TextField()
+
+    def __unicode__(self):
+        return '(%s) %s' % (self.tid, self.text[:30])
