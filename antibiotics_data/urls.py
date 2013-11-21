@@ -22,6 +22,8 @@ tree_list_urls = patterns('',
 tree_urls = patterns('',
     url(r'^test', TestIndividualTree.as_view(), name='test-individual-tree'),
     url(r'^(?:live)?$', LiveIndividualTree.as_view(), name='live-individual-tree'),
+    url(r'^(?P<version>[0-9]+)?$', SpecificIndividualTree.as_view(), 
+        name='specific-individual-tree'),
 )
 
 diagnosis_urls = patterns('',

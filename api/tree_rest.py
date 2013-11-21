@@ -18,15 +18,25 @@ class BaseIndividualTree(APIView):
 
         return query
 
-    def get(self, request, provider, category, diagnosis):
+    def get(self, request, provider, category, diagnosis, version=None):
         matching_trees = self.get_trees(provider, category, diagnosis)
-        tree = self.single_tree(matching_trees)
+        tree = self.single_tree(matching_trees, version)
 
         serializer = IndividualTreeSerializer(tree)
         return Response(serializer.data)
 
+class SpecificIndividualTree(BaseIndividualTree):
+    class Meta:
+        published = False
+
+    def single_tree(self, query, version):
+        for tree in query:
+            if tree.version == int(version):
+                return tree
+        raise Http404
+
 class BaseLatestIndividualTree(BaseIndividualTree):
-    def single_tree(self, query):
+    def single_tree(self, query, version):
         try:
             # TODO: work out why this is sometimes None
             if query:
@@ -42,5 +52,3 @@ class TestIndividualTree(BaseLatestIndividualTree):
     class Meta:
         published = False
 
-class SpecificIndividualTree:
-    pass
