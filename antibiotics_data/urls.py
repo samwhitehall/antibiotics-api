@@ -25,8 +25,6 @@ tree_urls = patterns('',
 )
 
 diagnosis_urls = patterns('',
-    url(r'^tree/(?P<pk>[0-9]+)/', 
-        SpecificIndividualTree.as_view(), name='specific-individual-tree'),
     url(r'^tree/' \
             '(?P<provider>[a-z-]+)/' \
             '(?P<category>[a-z-]+)/' \
