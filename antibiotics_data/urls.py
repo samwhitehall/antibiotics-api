@@ -3,7 +3,7 @@ from rest_framework import routers
 
 from api.provider_rest import LiveProviderList, TestProviderList
 from api.diagnosis_rest import LiveTreeList, TestTreeList
-from api.tree_rest import IndividualTree
+from api.tree_rest import LiveIndividualTree, TestIndividualTree
 
 from django.contrib import admin
 admin.autodiscover()
@@ -14,7 +14,8 @@ provider_urls = patterns('',
 )
 
 tree_urls = patterns('',
-    url(r'^/live', IndividualTree.as_view(), name='live-individual-tree'),
+    url(r'^/live', LiveIndividualTree.as_view(), name='live-individual-tree'),
+    url(r'^/test', TestIndividualTree.as_view(), name='test-individual-tree'),
 )
 
 diagnosis_urls = patterns('',
