@@ -5,11 +5,8 @@ from rest_framework.response import Response
 from api.diagnosis_serializers import LiveTreeSerializer, TestTreeSerializer
 from api.models import DecisionTree, Provider
 
-class BaseTreeList(generics.ListCreateAPIView):
+class BaseTreeList(generics.ListAPIView):
     model = DecisionTree
-    permission_classes = [
-        permissions.AllowAny
-    ]
 
     def get_queryset(self):
         provider_slug = self.kwargs['provider']
