@@ -15,7 +15,17 @@ class BaseTreeListingSerializer(serializers.ModelSerializer):
 
 class LiveTreeSerializer(BaseTreeListingSerializer):
     def get_tree_path(self, tree):
-       return 'live' 
+        # TODO: investigate why tree is sometimes None
+        if tree:
+            provider_slug = tree.provider.slug
+            category_slug = tree.diagnosis.category.slug
+            diagnosis_slug = tree.diagnosis.slug
+
+            return reverse('live-individual-tree', kwargs = {
+                'provider' : provider_slug,
+                'category' : category_slug,
+                'diagnosis' : diagnosis_slug
+            })
 
 class TestTreeSerializer(BaseTreeListingSerializer):
     def get_tree_path(self, tree):
