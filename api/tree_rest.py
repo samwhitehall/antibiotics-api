@@ -29,7 +29,7 @@ class BaseIndividualTree(APIView):
             if self.Meta.published:
                 query = query.filter(published=True)
 
-            return query.order_by('-published')[0:1]
+            return query.order_by('published')[0:1]
 
         except DecisionTree.DoesNotExist:
             raise Http404
