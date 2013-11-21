@@ -2,7 +2,6 @@ from django.conf.urls import patterns, include, url
 from rest_framework import routers
 
 from api.provider_rest import LiveProviderList, TestProviderList
-from api.diagnosis_rest import LiveDiagnosisList
 from api.tree_rest import LiveTreeList, TestTreeList, IndividualTree
 
 from django.contrib import admin
