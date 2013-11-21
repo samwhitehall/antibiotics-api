@@ -3,7 +3,7 @@ from django.db import models
 #TODO: slugs should be unique
 
 class Provider(models.Model):
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     name = models.CharField(max_length=100)
     description = models.TextField()
 
@@ -25,7 +25,7 @@ class Provider(models.Model):
 
 
 class Category(models.Model):
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     name = models.CharField(max_length=100)
 
     def __unicode__(self):
@@ -35,7 +35,7 @@ class Category(models.Model):
         verbose_name_plural = "categories"
 
 class Diagnosis(models.Model):
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     name = models.CharField(max_length=100)
     category = models.ForeignKey(Category, null=True)
 
