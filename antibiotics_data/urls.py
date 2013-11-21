@@ -28,10 +28,10 @@ tree_urls = patterns('',
 
 diagnosis_urls = patterns('',
     url(r'^tree/' \
-            '(?P<provider>[a-z-]+)/' \
-            '(?P<category>[a-z-]+)/' \
-            '(?P<diagnosis>[a-z-]+)/', include(tree_urls)),
-    url(r'^(?P<provider>[a-z]+)/', include(tree_list_urls))
+            '(?P<provider>[a-z0-9-]+)/' \
+            '(?P<category>[a-z0-9-]+)/' \
+            '(?P<diagnosis>[a-z0-9-]+)/', include(tree_urls)),
+    url(r'^(?P<provider>[a-z0-9]+)/', include(tree_list_urls))
 )
 
 urlpatterns = patterns('',
