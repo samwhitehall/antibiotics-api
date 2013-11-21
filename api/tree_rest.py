@@ -20,17 +20,24 @@ class SpecificIndividualTree(APIView):
 class BaseIndividualTree(APIView):
     def get_object(self, provider, category, diagnosis):
         try:
-            return DecisionTree.objects.filter(
+            query = DecisionTree.objects.filter(
                 provider__slug=provider,
                 diagnosis__category__slug=category,
                 diagnosis__slug=diagnosis,
-                published=self.Meta.published)[0]
+            )
+
+            if self.Meta.published:
+                query = query.filter(published=True)
+
+            return query.order_by('-published')[0:1]
+
         except DecisionTree.DoesNotExist:
             raise Http404
 
     def get(self, request, provider, category, diagnosis, format=None):
         tree = self.get_object(provider, category, diagnosis)
         serializer = IndividualTreeSerializer(tree)
+
         return Response(serializer.data)
 
 class LiveIndividualTree(BaseIndividualTree):
