@@ -2,10 +2,10 @@ from api.models import DecisionTree
 from rest_framework import serializers
 
 class TestTreeSerializer(serializers.ModelSerializer):
+    category = serializers.Field(source='diagnosis.category.name')
+    diagnosis = serializers.Field(source='diagnosis.name')
     version = serializers.Field(source='version')
-    diagnosis = serializers.Field(source='diagnosis.slug')
-    category = serializers.Field(source='diagnosis.category.slug')
 
     class Meta:
         model = DecisionTree
-        fields = ('diagnosis', 'category', 'version', )
+        fields = ('category', 'diagnosis', 'version', )
