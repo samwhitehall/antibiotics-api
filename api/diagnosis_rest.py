@@ -2,12 +2,11 @@ from django.http import Http404
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 
-from api.diagnosis_serializers import TestTreeSerializer
+from api.diagnosis_serializers import LiveTreeSerializer, TestTreeSerializer
 from api.models import DecisionTree, Provider
 
 class BaseTreeList(generics.ListCreateAPIView):
     model = DecisionTree
-    serializer_class = TestTreeSerializer
     permission_classes = [
         permissions.AllowAny
     ]
@@ -29,10 +28,13 @@ class BaseTreeList(generics.ListCreateAPIView):
 
         return test_trees
 
+class LiveTreeList(BaseTreeList):
+    serializer_class = LiveTreeSerializer
+    class Meta:
+        published_only = True
+
 class TestTreeList(BaseTreeList):
+    serializer_class = TestTreeSerializer
     class Meta:
         published_only = False
 
-class LiveTreeList(BaseTreeList):
-    class Meta:
-        published_only = True
