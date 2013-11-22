@@ -1,0 +1,57 @@
+[
+{
+  "pk": 1, 
+  "model": "api.decisiontree", 
+  "fields": {
+    "decision_structure": null, 
+    "published": true, 
+    "provider": 1, 
+    "diagnosis": 1, 
+    "created": "2013-11-22T15:25:25.351Z"
+  }
+},
+{
+  "pk": 2, 
+  "model": "api.decisiontree", 
+  "fields": {
+    "decision_structure": null, 
+    "published": false, 
+    "provider": 1, 
+    "diagnosis": 1, 
+    "created": "2013-11-22T15:25:34.839Z"
+  }
+},
+{
+  "pk": 3, 
+  "model": "api.decisiontree", 
+  "fields": {
+    "decision_structure": null, 
+    "published": true, 
+    "provider": 1, 
+    "diagnosis": 2, 
+    "created": "2013-11-22T15:26:53.841Z"
+  }
+},
+{
+  "pk": 4, 
+  "model": "api.decisiontree", 
+  "fields": {
+    "decision_structure": null, 
+    "published": false, 
+    "provider": 1, 
+    "diagnosis": 3, 
+    "created": "2013-11-22T15:27:08.308Z"
+  }
+},
+{
+  "pk": 5, 
+  "model": "api.decisiontree", 
+  "fields": {
+    "decision_structure": null, 
+    "published": false, 
+    "provider": 2, 
+    "diagnosis": 1, 
+    "created": "2013-11-22T15:27:41.986Z"
+  }
+}
+]

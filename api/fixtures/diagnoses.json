@@ -1,0 +1,29 @@
+[
+{
+  "pk": 1, 
+  "model": "api.diagnosis", 
+  "fields": {
+    "category": 1, 
+    "slug": "pneumonia", 
+    "name": "Pneumonia"
+  }
+},
+{
+  "pk": 2, 
+  "model": "api.diagnosis", 
+  "fields": {
+    "category": 2, 
+    "slug": "uti", 
+    "name": "Urinary Tract Infection"
+  }
+},
+{
+  "pk": 3, 
+  "model": "api.diagnosis", 
+  "fields": {
+    "category": 1, 
+    "slug": "sample", 
+    "name": "Sample"
+  }
+}
+]
