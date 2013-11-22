@@ -1,6 +1,5 @@
 from django.db import models
-
-#TODO: slugs should be unique
+import jsonfield
 
 class Provider(models.Model):
     slug = models.SlugField(unique=True)
@@ -52,6 +51,8 @@ class DecisionTree(models.Model):
     provider = models.ForeignKey(Provider, null=True)
     diagnosis = models.ForeignKey(Diagnosis, null=True)
 
+    decision_structure = jsonfield.JSONField(blank=True)
+
     @property
     def version(self):
         return DecisionTree.objects.filter(
@@ -74,13 +75,13 @@ class DecisionTree(models.Model):
 class Question(models.Model):
     qid = models.CharField(unique=True, max_length=30)
     label = models.CharField(max_length=100, blank=True)
-    answers = models.ManyToManyField('QuestionAnswer')
+    answers = models.ManyToManyField('QuestionChoices')
     information = models.TextField(blank=True)
 
     def __unicode__(self):
         return '(%s) %s' % (self.qid, self.text[:30])
 
-class QuestionAnswer(models.Model):
+class QuestionChoices(models.Model):
     label = models.CharField(max_length=10)
 
     def __unicode__(self):
