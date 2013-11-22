@@ -75,13 +75,13 @@ class DecisionTree(models.Model):
 class Question(models.Model):
     qid = models.CharField(unique=True, max_length=30)
     label = models.CharField(max_length=100, blank=True)
-    answers = models.ManyToManyField('QuestionChoices')
+    answers = models.ManyToManyField('QuestionChoice')
     information = models.TextField(blank=True)
 
     def __unicode__(self):
         return '(%s) %s' % (self.qid, self.text[:30])
 
-class QuestionChoices(models.Model):
+class QuestionChoice(models.Model):
     label = models.CharField(max_length=10)
 
     def __unicode__(self):
