@@ -1,6 +1,6 @@
 from django.contrib import admin
 from api.models import Provider, Category, Diagnosis, DecisionTree, \
-    Question, QuestionChoice, Treatment
+    Question, Treatment
 
 admin.site.register(Provider)
 admin.site.register(Category)
