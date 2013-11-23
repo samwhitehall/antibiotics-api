@@ -23,7 +23,7 @@ class BaseTreeListingSerializer(serializers.ModelSerializer):
         fields = ('path', 'category', 'diagnosis', 'version' )
 
 class LiveTreeSerializer(BaseTreeListingSerializer):
-    BaseTreeListingSerializer.url_name = 'live-individual-tree'
+    url_name = 'live-individual-tree'
 
 class TestTreeSerializer(BaseTreeListingSerializer):
-    BaseTreeListingSerializer.url_name = 'test-individual-tree'
+    url_name = 'test-individual-tree'
