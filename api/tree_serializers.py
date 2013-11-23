@@ -7,17 +7,27 @@ class IndividualTreeSerializer(serializers.ModelSerializer):
     version = serializers.Field(source='version')
     structure = serializers.Field(source='decision_structure')
     questions = serializers.SerializerMethodField('question_crawler')
+    treatments = serializers.SerializerMethodField('treatment_crawler')
 
     def question_crawler(self, obj):
         tree = obj.decision_structure 
-        qids = {x for x in tree_crawler.crawl(tree, 'q')}
+        qids = {q for q in tree_crawler.crawl(tree, 'q')}
         questions = Question.objects.filter(qid__in=qids)
+
         return QuestionSerializer(questions).data
+
+    # DRY violation... makes me sad :(
+    def treatment_crawler(self, obj):
+        tree = obj.decision_structure 
+        tids = {t for t in tree_crawler.crawl(tree, 't')}
+        treatments = Treatment.objects.filter(tid__in=tids)
+
+        return TreatmentSerializer(treatments).data
 
     class Meta:
         model = DecisionTree
-        fields = ('created', 'published', 'version', 
-            'questions', 'structure')
+        fields = ('created', 'published', 'version', 'questions', 
+            'treatments', 'structure')
 
 class QuestionSerializer(serializers.ModelSerializer):
     text = serializers.Field(source='label')
@@ -26,3 +36,10 @@ class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
         fields = ('qid', 'text', 'info')
+
+class TreatmentSerializer(serializers.ModelSerializer):
+    desc = serializers.Field(source='details')
+
+    class Meta:
+        model = Treatment
+        fields = ('tid', 'desc')
