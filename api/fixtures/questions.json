@@ -1,0 +1,65 @@
+[
+{
+  "pk": 1, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "lcon", 
+    "information": "Dummy info", 
+    "label": "Evidence of consolidation?"
+  }
+},
+{
+  "pk": 2, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "hcopd", 
+    "information": "dummy", 
+    "label": "History of COPD?"
+  }
+},
+{
+  "pk": 3, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "cacq", 
+    "information": "dummy", 
+    "label": "Community acquired?"
+  }
+},
+{
+  "pk": 4, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "c65s", 
+    "information": "dummy", 
+    "label": "CURB-65 Score"
+  }
+},
+{
+  "pk": 5, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "pall", 
+    "information": "", 
+    "label": "Penicillin Allergy?"
+  }
+},
+{
+  "pk": 6, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "toma", 
+    "information": "Dummy", 
+    "label": "Tolerating oral medication & absorbing?"
+  }
+},
+{
+  "pk": 7, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "sample", 
+    "information": "This should not appear in any...", 
+    "label": "Sample"
+  }
+}
+]

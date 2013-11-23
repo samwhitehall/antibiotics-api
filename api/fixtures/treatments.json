@@ -1,0 +1,74 @@
+[
+{
+  "pk": 1, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "opt1", 
+    "details": "First-line\\nDoxicycline 200mg\\noral 12-hourly for 48hrs then 200mg once-daily\\n\\nSecond-line\\n[recent doxycycline]\\nAmoxicillin 500mg\\noral 8-hourly"
+  }
+},
+{
+  "pk": 2, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "opt2", 
+    "details": "Chloramphenicol\\n12.5mg/kg IV 6-hourly"
+  }
+},
+{
+  "pk": 3, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "opt3", 
+    "details": "Doxycycline\\n200mg oral 12-hourly for 48hours\\nthen 200mg once-daily"
+  }
+},
+{
+  "pk": 4, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "opt4", 
+    "details": "Benzylpenicillin\\n1.2-2.4g iv 6-hourly plus\\nDoxycycline 200mg oral 12-hourly for 48hrs then 200mg once-daily"
+  }
+},
+{
+  "pk": 5, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "opt5", 
+    "details": "Benzylpenicillin\\n1.2-2.4g iv 6-hourly plus\\nClarithromysin 500mg iv 12-hourly"
+  }
+},
+{
+  "pk": 6, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "opt6", 
+    "details": "Go to COPD guideline (not pneumonia)"
+  }
+},
+{
+  "pk": 7, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "opt7", 
+    "details": "Go to RTI guideline (not pneumonia)"
+  }
+},
+{
+  "pk": 8, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "opt8", 
+    "details": "Hospital-Acquired Go to HAP guideline"
+  }
+},
+{
+  "pk": 9, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "sample", 
+    "details": "This should not show up"
+  }
+}
+]
