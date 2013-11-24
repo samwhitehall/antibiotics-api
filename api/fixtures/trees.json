@@ -3,7 +3,7 @@
   "pk": 1, 
   "model": "api.decisiontree", 
   "fields": {
-    "decision_structure": null, 
+    "decision_structure": "{\"next\":\"q\",\"id\":\"lcon\",\"act\":[{\"next\":\"q\",\"id\":\"cacq\",\"act\":[{\"next\":\"q\",\"id\":\"c65s\",\"act\":[{\"next\":\"q\",\"id\":\"pall\",\"act\":[{\"next\":\"q\",\"id\":\"toma\",\"act\":[{\"id\":\"opt1\",\"next\":\"t\"},{\"id\":\"opt2\",\"next\":\"t\"}]},{\"id\":\"opt3\",\"next\":\"t\"},{\"next\":\"q\",\"id\":\"toma\",\"act\":[{\"id\":\"opt3\",\"next\":\"t\"},{\"id\":\"opt2\",\"next\":\"t\"}]}]},{\"next\":\"q\",\"id\":\"pall\",\"act\":[{\"next\":\"q\",\"id\":\"toma\",\"act\":[{\"id\":\"opt1\",\"next\":\"t\"},{\"id\":\"opt2\",\"next\":\"t\"}]},{\"id\":\"opt3\",\"next\":\"t\"},{\"next\":\"q\",\"id\":\"toma\",\"act\":[{\"id\":\"opt3\",\"next\":\"t\"},{\"id\":\"opt2\",\"next\":\"t\"}]}]},{\"next\":\"q\",\"id\":\"pall\",\"act\":[{\"next\":\"q\",\"id\":\"toma\",\"act\":[{\"id\":\"opt4\",\"next\":\"t\"},{\"id\":\"opt5\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"toma\",\"act\":[{\"id\":\"opt2\",\"next\":\"t\"},{\"id\":\"opt2\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"toma\",\"act\":[{\"id\":\"opt2\",\"next\":\"t\"},{\"id\":\"opt2\",\"next\":\"t\"}]}]}]},{\"id\":\"opt8\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"hcopd\",\"act\":[{\"id\":\"opt6\",\"next\":\"t\"},{\"id\":\"opt7\",\"next\":\"t\"}]}]}", 
     "published": true, 
     "provider": 1, 
     "diagnosis": 1, 
