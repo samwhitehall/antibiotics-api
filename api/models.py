@@ -1,4 +1,5 @@
 from django.db import models
+
 import jsonfield
 
 class Provider(models.Model):
@@ -76,6 +77,11 @@ class Question(models.Model):
     qid = models.CharField(unique=True, max_length=30)
     label = models.CharField(max_length=100, blank=True)
     information = models.TextField(blank=True)
+    answers = jsonfield.JSONField(blank=True)
+
+    @property
+    def question_type(self):
+        return "check" if len(self.answers) == 2 else "radio"
 
     def __unicode__(self):
         return '(%s) %s' % (self.qid, self.label)

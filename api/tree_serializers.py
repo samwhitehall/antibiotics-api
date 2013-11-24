@@ -32,10 +32,12 @@ class IndividualTreeSerializer(serializers.ModelSerializer):
 class QuestionSerializer(serializers.ModelSerializer):
     text = serializers.Field(source='label')
     info = serializers.Field(source='information')
+    ans = serializers.Field(source='answers')
+    button = serializers.Field(source='question_type')
 
     class Meta:
         model = Question
-        fields = ('qid', 'text', 'info')
+        fields = ('qid', 'text', 'info', 'ans', 'button')
 
 class TreatmentSerializer(serializers.ModelSerializer):
     desc = serializers.Field(source='details')
