@@ -5,6 +5,7 @@
   "fields": {
     "qid": "lcon", 
     "information": "Dummy info", 
+    "answers": "[\"Yes\",\"No\"]", 
     "label": "Evidence of consolidation?"
   }
 },
@@ -14,6 +15,7 @@
   "fields": {
     "qid": "hcopd", 
     "information": "dummy", 
+    "answers": "[\"Yes\",\"No\"]", 
     "label": "History of COPD?"
   }
 },
@@ -23,6 +25,7 @@
   "fields": {
     "qid": "cacq", 
     "information": "dummy", 
+    "answers": "[\"Yes\",\"No\"]", 
     "label": "Community acquired?"
   }
 },
@@ -32,6 +35,7 @@
   "fields": {
     "qid": "c65s", 
     "information": "dummy", 
+    "answers": "[\"0-1\",\"2\",\"3-5\"]", 
     "label": "CURB-65 Score"
   }
 },
@@ -41,6 +45,7 @@
   "fields": {
     "qid": "pall", 
     "information": "", 
+    "answers": "[\"None\",\"Mild\",\"Severe\"]", 
     "label": "Penicillin Allergy?"
   }
 },
@@ -50,6 +55,7 @@
   "fields": {
     "qid": "toma", 
     "information": "Dummy", 
+    "answers": "[\"Yes\",\"No\"]", 
     "label": "Tolerating oral medication & absorbing?"
   }
 },
@@ -59,6 +65,7 @@
   "fields": {
     "qid": "sample", 
     "information": "This should not appear in any...", 
+    "answers": "\"\"", 
     "label": "Sample"
   }
 }
