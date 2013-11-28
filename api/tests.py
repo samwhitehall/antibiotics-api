@@ -193,7 +193,7 @@ class IndividualTreeViewTest(TestCase):
 
     def test_contains_correct_treatments(self):
         tids = {treatment['tid'] for treatment in self.content[0]['treatments']}
-        self.assertSetEqual(tids, {'opt%d' % i for i in range(len(tids))})
+        self.assertSetEqual(tids, {'opt%d' % i for i in range(1,len(tids)+1)})
 
     def test_specify_exact_version_is_same(self):
         self.assertEqual(self.content[0]['version'], 1)
