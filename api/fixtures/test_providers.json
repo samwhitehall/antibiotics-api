@@ -1,0 +1,29 @@
+[
+{
+  "pk": 1, 
+  "model": "api.provider", 
+  "fields": {
+    "description": "University Hospital Southampton NHS Foundation Trust provides services to some 1.3 million people living in Southampton and south Hampshire, plus specialist services such as neurosciences, cardiac services and children's intensive care to more than 3 million people in central southern England and the Channel Islands.", 
+    "slug": "suht", 
+    "name": "Southampton University Hospital Trust"
+  }
+},
+{
+  "pk": 2, 
+  "model": "api.provider", 
+  "fields": {
+    "description": "Portsmouth Hospitals NHS Trust provides a range of acute services at Queen Alexandra Hospital.", 
+    "slug": "phnt", 
+    "name": "Portsmouth Hospitals NHS Trust"
+  }
+},
+{
+  "pk": 3, 
+  "model": "api.provider", 
+  "fields": {
+    "description": "This provider is used in test cases.", 
+    "slug": "test-case", 
+    "name": "Test Case Provider"
+  }
+}
+]
