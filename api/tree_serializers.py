@@ -10,6 +10,8 @@ class IndividualTreeSerializer(serializers.ModelSerializer):
     treatments = serializers.SerializerMethodField('treatment_crawler')
 
     def question_crawler(self, obj):
+        '''Crawl the tree, find the question IDs it references, query the database
+        for the questions behind this, and output a 'legend' in the API.'''
         tree = obj.decision_structure 
         qids = {q for q in tree_crawler.crawl(tree, 'q')}
         questions = Question.objects.filter(qid__in=qids)
@@ -18,6 +20,7 @@ class IndividualTreeSerializer(serializers.ModelSerializer):
 
     # DRY violation... makes me sad :(
     def treatment_crawler(self, obj):
+        '''Same as question_crawler but for treatments.'''
         tree = obj.decision_structure 
         tids = {t for t in tree_crawler.crawl(tree, 't')}
         treatments = Treatment.objects.filter(tid__in=tids)

@@ -6,6 +6,10 @@ from api.tree_serializers import IndividualTreeSerializer
 from api.models import DecisionTree
 
 class BaseIndividualTree(APIView):
+    '''Get a query of trees implemented by the given provider for the given
+    diagnosis: each subclass then implements a method 'single_tree' to disambiguate
+    which single tree from the query to show'''
+
     def get_trees(self, provider, category, diagnosis):
         query = DecisionTree.objects.filter(
             provider__slug=provider,
@@ -26,6 +30,7 @@ class BaseIndividualTree(APIView):
         return Response(serializer.data)
 
 class SpecificIndividualTree(BaseIndividualTree):
+    '''Tree with a specific version number'''
     class Meta:
         published = False
 
@@ -33,6 +38,7 @@ class SpecificIndividualTree(BaseIndividualTree):
         for tree in query:
             if tree.version == int(version):
                 return tree
+
         raise Http404
 
 class BaseLatestIndividualTree(BaseIndividualTree):
