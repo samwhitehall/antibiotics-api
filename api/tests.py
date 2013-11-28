@@ -109,8 +109,6 @@ class ProviderListViewTest(TestCase):
     def test_test_contains_correct_fields(self):
         self.assertSetEqual(set(self.test_content[0].keys()), 
             {'slug', 'name', 'description', 'status'})
-        self.assertSetEqual(set(self.test_content[1].keys()), 
-            {'slug', 'name', 'description', 'status'})
 
         self.assertEqual(self.test_content[0]['status'], 'test')
         self.assertEqual(self.test_content[1]['status'], 'test')
@@ -130,22 +128,41 @@ class ProviderListViewTest(TestCase):
 
 class DiagnosisListViewTest(TestCase):
     fixtures = ['providers.json', 'categories.json', 'diagnoses.json', 
-        'questions.json', 'treatments.json', 'trees.json']
+       'questions.json', 'treatments.json', 'trees.json']
+
+    def setUp(self):
+        live_response = Client().get('/data/suht/')
+        self.assertEqual(live_response.status_code, 200)
+        self.live_content = json.loads(live_response.content)
+
+        test_response = Client().get('/data/suht/test')
+        self.assertEqual(test_response.status_code, 200)
+        self.test_content = json.loads(test_response.content)
 
     def test_live_contains_correct_fields(self):
-        self.assertTrue(False)
+        self.assertSetEqual(set(self.live_content[0].keys()),
+            {'path', 'category', 'diagnosis', 'version'})
 
     def test_live_all_slugs_valid(self):
-        self.assertTrue(False)
+        for diagnosis in self.live_content:
+            res = Client().get(diagnosis['path'])
+            self.assertEqual(res.status_code, 200)
 
     def test_test_contains_correct_fields(self):
-        self.assertTrue(False)
+        self.assertSetEqual(set(self.test_content[0].keys()),
+            {'path', 'category', 'diagnosis', 'version'})
 
     def test_test_all_slugs_valid(self):
-        self.assertTrue(False)
+        for diagnosis in self.test_content:
+            res = Client().get(diagnosis['path'])
+            self.assertEqual(res.status_code, 200)
 
     def test_default_url_is_live_url(self):
-        self.assertTrue(False)
+        live = Client().get('/data/suht/live')
+        self.assertEqual(live.status_code, 200)
+
+        content = json.loads(live.content)
+        self.assertEqual(content, self.live_content)
 
     def test_add_new_diagnosis_no_implementation(self):
         self.assertTrue(False)
