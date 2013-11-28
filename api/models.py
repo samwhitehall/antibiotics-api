@@ -4,7 +4,7 @@ import jsonfield
 
 class Provider(models.Model):
     slug = models.SlugField(unique=True)
-    name = models.CharField(max_length=100)
+    name = models.CharField(unique=True, max_length=100)
     description = models.TextField()
 
     @property
