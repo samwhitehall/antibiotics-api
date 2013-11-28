@@ -197,3 +197,19 @@ class IndividualTreeViewTest(TestCase):
 
     def test_add_remove_treatment_to_tree(self):
         self.assertTrue(False)
+
+class EmptyIndividualTreeViewTest(TestCase):
+    fixtures = ['providers.json', 'categories.json', 'diagnoses.json', 
+        'questions.json', 'treatments.json', 'trees.json']
+
+    def test_contains_correct_root_fields(self):
+        self.assertTrue(False)
+
+    def test_contains_empty_questions(self):
+        self.assertTrue(False)
+
+    def test_contains_empty_treatments(self):
+        self.assertTrue(False)
+
+    def test_contains_empty_structure(self):
+        self.assertTrue(False)

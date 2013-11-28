@@ -13,6 +13,8 @@ class IndividualTreeSerializer(serializers.ModelSerializer):
         '''Crawl the tree, find the question IDs it references, query the database
         for the questions behind this, and output a 'legend' in the API.'''
         tree = obj.decision_structure 
+        if tree == None:
+            return []
         qids = {q for q in tree_crawler.crawl(tree, 'q')}
         questions = Question.objects.filter(qid__in=qids)
 
@@ -22,6 +24,8 @@ class IndividualTreeSerializer(serializers.ModelSerializer):
     def treatment_crawler(self, obj):
         '''Same as question_crawler but for treatments.'''
         tree = obj.decision_structure 
+        if tree == None:
+            return []
         tids = {t for t in tree_crawler.crawl(tree, 't')}
         treatments = Treatment.objects.filter(tid__in=tids)
 
