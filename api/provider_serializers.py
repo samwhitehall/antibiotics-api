@@ -13,8 +13,5 @@ class LiveProviderSerializer(BaseProviderSerializer):
         return "live"
 
 class TestProviderSerializer(BaseProviderSerializer):
-    slug = serializers.Field(source='test_slug')
-    name = serializers.Field(source='test_name')
-
     def get_status(self, obj):
         return "test"
