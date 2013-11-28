@@ -258,9 +258,6 @@ class IndividualTreeViewTest(TestCase):
     def test_specify_exact_version_is_same(self):
         self.assertEqual(self.content[0]['version'], 1)
 
-    def test_conforms_to_schema(self):
-        self.assertTrue(False)
-
     def test_add_remove_question_to_tree(self):
         self.assertTrue(False)
 
