@@ -88,3 +88,6 @@ REST_FRAMEWORK = {
     'DEFAULT_MODEL_SERIALIZER_CLASS' : 
        'rest_framework.serializers.HyperlinkedModelSerializer',
 }
+
+# South shouldn't be used for tests
+SOUTH_TESTS_MIGRATE = False
