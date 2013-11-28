@@ -9,6 +9,8 @@ class Provider(models.Model):
 
     @property
     def any_live(self):
+        '''Does this provider have any published decision trees? i.e. should it
+        show up as a live provider?'''
         return any(dt.published 
             for dt in DecisionTree.objects.filter(provider=self))
 
@@ -26,6 +28,7 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "categories"
 
+
 class Diagnosis(models.Model):
     slug = models.SlugField(unique=True)
     name = models.CharField(unique=True, max_length=100)
@@ -37,17 +40,22 @@ class Diagnosis(models.Model):
     class Meta:
         verbose_name_plural = "diagnoses"
 
+
 class DecisionTree(models.Model):
     created = models.DateTimeField(auto_now_add=True, unique=True)
     published = models.BooleanField(default=False)
 
+    # implementation of which diagnosis for which provider?
     provider = models.ForeignKey(Provider, null=False, blank=False)
     diagnosis = models.ForeignKey(Diagnosis, null=False, blank=False)
 
+    # JSON of nested tree description 
     decision_structure = jsonfield.JSONField(blank=True)
 
     @property
     def version(self):
+        '''This tree's version can be calculated based on the number of older trees
+        implementing the same diagnosis for the same provider.'''
         return DecisionTree.objects.filter(
             provider=self.provider,
             diagnosis=self.diagnosis,
@@ -64,6 +72,7 @@ class DecisionTree(models.Model):
 
     class Meta:
         verbose_name = "decision tree"
+
 
 class Question(models.Model):
     qid = models.CharField(unique=True, max_length=30)
