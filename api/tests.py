@@ -194,13 +194,44 @@ class DiagnosisListViewTest(TestCase):
         self.assertEqual(content, self.live_content)
 
     def test_add_new_diagnosis_no_implementation(self):
-        self.assertTrue(False)
+        slug = 'diagnosis-slug'
+        name = 'My Diagnosis'
+        new_diagnosis = Diagnosis.objects.create(
+            slug=slug, name=name, category_id=1)
+
+        self.setUp()
+
+        self.assertEqual(len(self.live_content), 2)
+        self.assertEqual(len(self.test_content), 3)
 
     def test_add_new_unpublished_diagnosis_implementation(self):
-        self.assertTrue(False)
+        slug = 'diagnosis-slug'
+        name = 'My Diagnosis'
+        new_diagnosis = Diagnosis.objects.create(
+            slug=slug, name=name, category_id=1)
+        tree = DecisionTree.objects.create(
+            provider_id=1, diagnosis_id=new_diagnosis.id)
+
+        self.setUp()
+
+        self.assertEqual(len(self.live_content), 2)
+        self.assertEqual(len(self.test_content), 4)
+        self.assertEqual(self.test_content[3]['diagnosis'], name)
 
     def test_add_new_published_diagnosis_implementation(self):
-        self.assertTrue(False)
+        slug = 'diagnosis-slug'
+        name = 'My Diagnosis'
+        new_diagnosis = Diagnosis.objects.create(
+            slug=slug, name=name, category_id=1)
+        tree = DecisionTree.objects.create(
+            provider_id=1, diagnosis_id=new_diagnosis.id, published=True)
+
+        self.setUp()
+
+        self.assertEqual(len(self.live_content), 3)
+        self.assertEqual(len(self.test_content), 4)
+        self.assertEqual(self.live_content[2]['diagnosis'], name)
+        self.assertEqual(self.test_content[3]['diagnosis'], name)
 
 class IndividualTreeViewTest(TestCase):
     fixtures = ['providers.json', 'categories.json', 'diagnoses.json', 
