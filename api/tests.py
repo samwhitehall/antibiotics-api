@@ -6,7 +6,7 @@ class DecisionTreeVersionTest(TestCase):
 
     def test_new_tree(self):
         '''First new tree for an empty provider diagnosis should be v1'''
-        new_tree = DecisionTree.objects.create()
+        new_tree = DecisionTree.objects.create(provider_id=1, diagnosis_id=1)
         self.assertEqual(new_tree.version, 1)
 
     def test_new_tree_shared_provider_cat(self):
