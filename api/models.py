@@ -29,7 +29,7 @@ class Category(models.Model):
 class Diagnosis(models.Model):
     slug = models.SlugField(unique=True)
     name = models.CharField(unique=True, max_length=100)
-    category = models.ForeignKey(Category, null=True)
+    category = models.ForeignKey(Category, null=False, blank=False)
 
     def __unicode__(self):
         return '%s/%s' % (self.category, self.name)
@@ -41,8 +41,8 @@ class DecisionTree(models.Model):
     created = models.DateTimeField(auto_now_add=True, unique=True)
     published = models.BooleanField(default=False)
 
-    provider = models.ForeignKey(Provider, null=True)
-    diagnosis = models.ForeignKey(Diagnosis, null=True)
+    provider = models.ForeignKey(Provider, null=False, blank=False)
+    diagnosis = models.ForeignKey(Diagnosis, null=False, blank=False)
 
     decision_structure = jsonfield.JSONField(blank=True)
 
