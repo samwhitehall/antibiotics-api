@@ -18,16 +18,20 @@ class BaseTreeList(generics.ListAPIView):
 
         # filter to only find published decision trees, if required
         if(self.Meta.published_only):
-            provider_trees = trees_from_provider.filter(published=True)
+            trees_from_provider = trees_from_provider.filter(published=True)
 
         # determine which diagnoses are implemented by decision trees associated
         # with this provider
-        diagnoses = {tree.diagnosis for tree in provider_trees}
+        diagnoses = {tree.diagnosis for tree in trees_from_provider}
 
         latest_trees = []
         for diagnosis in diagnoses:
-            latest = provider_trees.filter(diagnosis=diagnosis).order_by('-created')[0]
+            latest = trees_from_provider \
+                .filter(diagnosis=diagnosis) \
+                .order_by('-created')[0]
+
             latest_trees.append(latest)
+
         return latest_trees
 
 class LiveTreeList(BaseTreeList):
