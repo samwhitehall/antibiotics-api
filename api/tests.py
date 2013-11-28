@@ -78,3 +78,22 @@ class ProviderModelTest(TestCase):
         tree2 = DecisionTree.objects.create(
             provider_id=1, diagnosis_id=1, published=True)
         self.assertTrue(provider.any_live)
+
+class ProviderListViewTest(TestCase):
+    fixtures = ['providers.json', 'categories.json', 'diagnoses.json', 
+        'questions.json', 'treatments.json', 'trees.json']
+
+    def test_live_contains_suht(self):
+        self.assertTrue(False)
+
+    def test_live_contains_correct_fields(self):
+        self.assertTrue(False)
+
+    def test_test_contains_suht_phnt(self):
+        self.assertTrue(False)
+
+    def test_test_contains_correct_fields(self):
+        self.assertTrue(False)
+
+    def test_default_url_is_live_url(self):
+        self.assertTrue(False)
