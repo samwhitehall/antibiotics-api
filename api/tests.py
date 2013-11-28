@@ -177,17 +177,26 @@ class IndividualTreeViewTest(TestCase):
     fixtures = ['providers.json', 'categories.json', 'diagnoses.json', 
         'questions.json', 'treatments.json', 'trees.json']
 
+    def setUp(self):
+        response = Client().get('/data/tree/suht/respiratory/pneumonia/')
+        self.assertEqual(response.status_code, 200)
+        self.content = json.loads(response.content)
+
     def test_contains_correct_root_fields(self):
-        self.assertTrue(False)
+        self.assertSetEqual(set(self.content[0].keys()),
+            {'published', 'created', 'version', 'questions', 
+             'treatments', 'structure'})
 
     def test_contains_correct_questions(self):
-        self.assertTrue(False)
+        qids = {question['qid'] for question in self.content[0]['questions']}
+        self.assertSetEqual(qids, {'lcon', 'cacq', 'c65s', 'pall', 'toma', 'hcopd'})
 
     def test_contains_correct_treatments(self):
-        self.assertTrue(False)
+        tids = {treatment['tid'] for treatment in self.content[0]['treatments']}
+        self.assertSetEqual(tids, {'opt%d' % i for i in range(len(tids))})
 
     def test_specify_exact_version_is_same(self):
-        self.assertTrue(False)
+        self.assertEqual(self.content[0]['version'], 1)
 
     def test_conforms_to_schema(self):
         self.assertTrue(False)
@@ -202,14 +211,21 @@ class EmptyIndividualTreeViewTest(TestCase):
     fixtures = ['providers.json', 'categories.json', 'diagnoses.json', 
         'questions.json', 'treatments.json', 'trees.json']
 
+    def setUp(self):
+        response = Client().get('/data/tree/suht/urinary/uti/')
+        self.assertEqual(response.status_code, 200)
+        self.content = json.loads(response.content)
+
     def test_contains_correct_root_fields(self):
-        self.assertTrue(False)
+        self.assertSetEqual(set(self.content[0].keys()),
+            {'published', 'created', 'version', 'questions', 
+             'treatments', 'structure'})
 
     def test_contains_empty_questions(self):
-        self.assertTrue(False)
+        self.assertEqual(self.content[0]['questions'], [])
 
     def test_contains_empty_treatments(self):
-        self.assertTrue(False)
+        self.assertEqual(self.content[0]['treatments'], [])
 
     def test_contains_empty_structure(self):
-        self.assertTrue(False)
+        self.assertEqual(self.content[0]['structure'], [])
