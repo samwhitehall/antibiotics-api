@@ -5,9 +5,13 @@ from rest_framework import serializers
 
 class IndividualTreeSerializer(serializers.ModelSerializer):
     version = serializers.Field(source='version')
-    structure = serializers.Field(source='decision_structure')
+    structure = serializers.SerializerMethodField('question_check')
     questions = serializers.SerializerMethodField('question_crawler')
     treatments = serializers.SerializerMethodField('treatment_crawler')
+
+    def question_check(self, obj):
+        '''Return [] instead of 'null' string if this field is blank'''
+        return obj.decision_structure or []
 
     def question_crawler(self, obj):
         '''Crawl the tree, find the question IDs it references, query the database
