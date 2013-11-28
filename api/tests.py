@@ -85,50 +85,42 @@ class ProviderListViewTest(TestCase):
     fixtures = ['providers.json', 'categories.json', 'diagnoses.json', 
         'questions.json', 'treatments.json', 'trees.json']
 
-    def live_setUp(self):
-        response = Client().get('/providers/')
-        self.assertEqual(response.status_code, 200)
-        self.content = json.loads(response.content)
+    def setUp(self):
+        live_response = Client().get('/providers/')
+        self.assertEqual(live_response.status_code, 200)
+        self.live_content = json.loads(live_response.content)
 
-    def test_setUp(self):
-        response = Client().get('/providers/test')
-        self.assertEqual(response.status_code, 200)
-        self.content = json.loads(response.content)
+        test_response = Client().get('/providers/test')
+        self.assertEqual(test_response.status_code, 200)
+        self.test_content = json.loads(test_response.content)
 
     def test_live_contains_suht(self):
-        self.live_setUp()
-        self.assertEqual(self.content[0]['slug'], 'suht')
+        self.assertEqual(self.live_content[0]['slug'], 'suht')
 
     def test_live_contains_correct_fields(self):
-        self.live_setUp()
-        self.assertIn('name', self.content[0].keys())
-        self.assertIn('description', self.content[0].keys())
-        self.assertEquals(self.content[0]['status'], 'live')
+        self.assertIn('name', self.live_content[0].keys())
+        self.assertIn('description', self.live_content[0].keys())
+        self.assertEquals(self.live_content[0]['status'], 'live')
 
     def test_test_contains_suht_phnt(self):
-        self.test_setUp()
-        self.assertEqual(self.content[0]['slug'], 'suht')
-        self.assertEqual(self.content[1]['slug'], 'phnt')
+        self.assertEqual(self.test_content[0]['slug'], 'suht')
+        self.assertEqual(self.test_content[1]['slug'], 'phnt')
 
     def test_test_contains_correct_fields(self):
-        self.test_setUp()
-
-        self.assertSetEqual(set(self.content[0].keys()), 
+        self.assertSetEqual(set(self.test_content[0].keys()), 
             {'slug', 'name', 'description', 'status'})
-        self.assertSetEqual(set(self.content[1].keys()), 
+        self.assertSetEqual(set(self.test_content[1].keys()), 
             {'slug', 'name', 'description', 'status'})
 
-        self.assertEqual(self.content[0]['status'], 'test')
-        self.assertEqual(self.content[1]['status'], 'test')
+        self.assertEqual(self.test_content[0]['status'], 'test')
+        self.assertEqual(self.test_content[1]['status'], 'test')
 
     def test_default_url_is_live_url(self):
-        self.live_setUp()
-
         live = Client().get('/providers/live')
         self.assertEqual(live.status_code, 200)
 
         content = json.loads(live.content)
-        self.assertEqual(content, self.content)
+        self.assertEqual(content, self.live_content)
 
     def test_add_provider_no_published(self):
         self.assertTrue(False)
