@@ -1,0 +1,28 @@
+[
+{
+  "pk": 1, 
+  "model": "api.provider", 
+  "fields": {
+    "description": "Generic provider for use in test cases.", 
+    "slug": "test-case", 
+    "name": "Test Case Provider"
+  }
+},
+{
+  "pk": 1, 
+  "model": "api.category", 
+  "fields": {
+    "slug": "cat", 
+    "name": "Sample Category"
+  }
+},
+{
+  "pk": 1, 
+  "model": "api.diagnosis", 
+  "fields": {
+    "category": 1, 
+    "slug": "sample", 
+    "name": "Sample Diagnosis"
+  }
+}
+]
