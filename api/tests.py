@@ -121,10 +121,39 @@ class ProviderListViewTest(TestCase):
         self.assertEqual(content, self.live_content)
 
     def test_add_provider_no_published(self):
-        self.assertTrue(False)
+        slug = 'our-slug'
+        name = 'Provider'
+        description = 'abc123'
+        new_provider = Provider.objects.create(
+            slug=slug, name=name, description=description)
+
+        self.setUp()
+        self.assertEqual(len(self.test_content), 3)
+        self.assertEqual(self.test_content[2]['slug'], slug)
+        self.assertEqual(self.test_content[2]['name'], name)
+        self.assertEqual(self.test_content[2]['description'], description)
+        self.assertEqual(len(self.live_content), 1)
 
     def test_add_provider_published(self):
-        self.assertTrue(False)
+        slug = 'our-slug'
+        name = 'Provider'
+        description = 'abc123'
+        new_provider = Provider.objects.create(
+            slug=slug, name=name, description=description)
+        tree1 = DecisionTree.objects.create(
+            provider_id=3, diagnosis_id=1, published=True)
+
+        self.setUp()
+
+        self.assertEqual(len(self.test_content), 3)
+        self.assertEqual(self.test_content[2]['slug'], slug)
+        self.assertEqual(self.test_content[2]['name'], name)
+        self.assertEqual(self.test_content[2]['description'], description)
+
+        self.assertEqual(len(self.live_content), 2)
+        self.assertEqual(self.live_content[1]['slug'], slug)
+        self.assertEqual(self.live_content[1]['name'], name)
+        self.assertEqual(self.live_content[1]['description'], description)
 
 class DiagnosisListViewTest(TestCase):
     fixtures = ['providers.json', 'categories.json', 'diagnoses.json', 
