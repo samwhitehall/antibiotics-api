@@ -116,3 +116,22 @@ class DiagnosisListViewTest(TestCase):
 
     def test_default_url_is_live_url(self):
         self.assertTrue(False)
+
+class IndividualTreeViewTest(TestCase):
+    fixtures = ['providers.json', 'categories.json', 'diagnoses.json', 
+        'questions.json', 'treatments.json', 'trees.json']
+
+    def test_contains_correct_root_fields(self):
+        self.assertTrue(False)
+
+    def test_contains_correct_questions(self):
+        self.assertTrue(False)
+
+    def test_contains_correct_treatments(self):
+        self.assertTrue(False)
+
+    def test_specify_exact_version_is_same(self):
+        self.assertTrue(False)
+
+    def test_conforms_to_schema(self):
+        self.assertTrue(False)
