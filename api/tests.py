@@ -97,3 +97,22 @@ class ProviderListViewTest(TestCase):
 
     def test_default_url_is_live_url(self):
         self.assertTrue(False)
+
+class DiagnosisListViewTest(TestCase):
+    fixtures = ['providers.json', 'categories.json', 'diagnoses.json', 
+        'questions.json', 'treatments.json', 'trees.json']
+
+    def test_live_contains_correct_fields(self):
+        self.assertTrue(False)
+
+    def test_live_all_slugs_valid(self):
+        self.assertTrue(False)
+
+    def test_test_contains_correct_fields(self):
+        self.assertTrue(False)
+
+    def test_test_all_slugs_valid(self):
+        self.assertTrue(False)
+
+    def test_default_url_is_live_url(self):
+        self.assertTrue(False)
