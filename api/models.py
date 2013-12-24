@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 
 import jsonfield
@@ -61,6 +62,17 @@ class DecisionTree(models.Model):
             diagnosis=self.diagnosis,
             created__lt=self.created
         ).count() + 1
+
+    @property
+    def visualisation_link(self):
+        kwargs = {
+            'provider' : self.provider.slug,
+            'category' : self.diagnosis.category.slug,
+            'diagnosis' : self.diagnosis.slug,
+            'version' : self.version
+        }
+        url = reverse('vistool-specific-tree', kwargs=kwargs)
+        return url
 
     def __unicode__(self):
         return '%s (%s) v%d %s' % (
