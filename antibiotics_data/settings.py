@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'south',
     'rest_framework',
     'api',
-    'django.extensions'
+    'django_extensions'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -92,3 +92,10 @@ REST_FRAMEWORK = {
 
 # South shouldn't be used for tests
 SOUTH_TESTS_MIGRATE = False
+
+# Template directories
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+
+TEMPLATE_DIRS = (
+    os.path.join(PROJECT_ROOT, 'templates').replace('\\','/'),
+)

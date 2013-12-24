@@ -5,9 +5,11 @@ from api.provider_rest import LiveProviderList, TestProviderList
 from api.diagnosis_rest import LiveTreeList, TestTreeList
 from api.tree_rest import LiveIndividualTree, TestIndividualTree, \
     SpecificIndividualTree
+from api.views import vis_tool
 
 from django.contrib import admin
 admin.autodiscover()
+
 
 provider_urls = patterns('',
     url(r'^test', TestProviderList.as_view(), name='test-provider-list'),
@@ -22,8 +24,10 @@ tree_list_urls = patterns('',
 tree_urls = patterns('',
     url(r'^test', TestIndividualTree.as_view(), name='test-individual-tree'),
     url(r'^(?:live)?$', LiveIndividualTree.as_view(), name='live-individual-tree'),
-    url(r'^(?P<version>[0-9]+)?$', SpecificIndividualTree.as_view(), 
+    url(r'^(?P<version>[0-9]+)$', SpecificIndividualTree.as_view(), 
         name='specific-individual-tree'),
+    url(r'^(?P<version>[0-9]+)/vis$$', vis_tool,
+        name='vistool-specific-tree'),
 )
 
 diagnosis_urls = patterns('',
