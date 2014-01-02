@@ -4,10 +4,10 @@ import api.tree_crawler as tree_crawler
 from rest_framework import serializers
 
 class IndividualTreeSerializer(serializers.ModelSerializer):
-    version = serializers.Field(source='version')
-    structure = serializers.SerializerMethodField('question_check')
-    questions = serializers.SerializerMethodField('question_crawler')
-    treatments = serializers.SerializerMethodField('treatment_crawler')
+    dataVersion = serializers.Field(source='version')
+    DecisionTree = serializers.SerializerMethodField('question_check')
+    Questions = serializers.SerializerMethodField('question_crawler')
+    Treatments = serializers.SerializerMethodField('treatment_crawler')
 
     def question_check(self, obj):
         '''Return [] instead of 'null' string if this field is blank'''
@@ -37,8 +37,8 @@ class IndividualTreeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DecisionTree
-        fields = ('created', 'published', 'version', 'questions', 
-            'treatments', 'structure')
+        fields = ('created', 'published', 'dataVersion', 'Questions', 
+            'Treatments', 'DecisionTree')
 
 class QuestionSerializer(serializers.ModelSerializer):
     text = serializers.Field(source='label')
