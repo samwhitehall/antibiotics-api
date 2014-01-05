@@ -5,9 +5,14 @@ from rest_framework import serializers
 
 class IndividualTreeSerializer(serializers.ModelSerializer):
     dataVersion = serializers.Field(source='version')
+    schemaVersion = serializers.Field(source='version')
     DecisionTree = serializers.SerializerMethodField('question_check')
     Questions = serializers.SerializerMethodField('question_crawler')
     Treatments = serializers.SerializerMethodField('treatment_crawler')
+
+    def schema_version(self, obj):
+        '''kludge!'''
+        return 1
 
     def question_check(self, obj):
         '''Return [] instead of 'null' string if this field is blank'''
@@ -35,10 +40,10 @@ class IndividualTreeSerializer(serializers.ModelSerializer):
 
         return TreatmentSerializer(treatments).data
 
-    class Meta:
-        model = DecisionTree
-        fields = ('created', 'published', 'dataVersion', 'Questions', 
-            'Treatments', 'DecisionTree')
+    class Meta: 
+        model = DecisionTree 
+        fields = ('created', 'published', 'dataVersion', 'schemaVersion',
+        'Questions', 'Treatments', 'DecisionTree')
 
 class QuestionSerializer(serializers.ModelSerializer):
     text = serializers.Field(source='label')
