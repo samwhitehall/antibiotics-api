@@ -24,8 +24,19 @@ class IndividualTreeSerializer(serializers.ModelSerializer):
         tree = obj.decision_structure 
         if tree == None:
             return []
-        qids = {q for q in tree_crawler.crawl(tree, 'q')}
-        questions = Question.objects.filter(qid__in=qids)
+
+        # produce a list of questions in the order they show up (along the first
+        # path)
+        qids_seen = set()
+        ordered_qids = []
+        for q in tree_crawler.crawl(tree, 'q'):
+            if q not in qids_seen:
+                ordered_qids.append(q)
+                qids_seen.add(q)
+
+        print ordered_qids
+            
+        questions = [Question.objects.get(qid=qid) for qid in ordered_qids]
 
         return QuestionSerializer(questions).data
 
