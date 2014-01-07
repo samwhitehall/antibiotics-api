@@ -282,12 +282,21 @@ View.prototype = {
             var x = d.target.x;
             return "translate(" + y + "," + x + ")";})
         .append("g").attr("transform", "translate(-5,-5)")
-        .append("rect")
+
+        expandBox.append("rect")
             .attr("class", "expanderContractor")
             .attr("width", 10)
             .attr("height", 10)
             .attr("id", function(d) {return "expandbox" + d.target.uid;})
-            .style("fill : rgb(0,255,255)")
+
+            expandBox.append("path")
+            .attr("id", function(d) {return "expandpath" + d.target.uid;})
+            .attr("class", "minus")
+            .attr("d", "M 2 5 L 8 5")
+            //.attr("d", "M 2 5 L 8 5 M 5 2 L 5 8")
+            .attr("stroke", "black")
+            .attr("stroke-width", 1)
+            .attr("fill", "none")
 
             /*.append("line")
         .attr("x1", 5)
@@ -422,6 +431,7 @@ View.prototype = {
         var node = $("#"+ des[i]);
         var textLabel = $("#textLabel" + des[i]);
         var expandbox = $("#expandbox" + des[i]);
+        var expandpath = $("#expandpath" + des[i]);
         var link = $("#link" + des[i]);
 
         
@@ -429,8 +439,17 @@ View.prototype = {
         textLabel.toggle();
         if(i != 0) {
         expandbox.toggle();
+        expandpath.toggle();
         link.toggle();
 
+        } else {
+            if(expandpath.attr("class") == "minus") {
+            expandpath.attr("d", "M 2 5 L 8 5 M 5 2 L 5 8")
+            expandpath.attr("class", "plus");
+            } else {
+            expandpath.attr("d", "M 2 5 L 8 5")
+                expandpath.attr("class", "minus")
+            }
         }
       }
   },
@@ -461,25 +480,21 @@ View.prototype = {
 
     function zoomed() {
         if(d3.event.sourceEvent.type == 'wheel') {
-        console.log(d3.event.scale);
         window.controller.zoom(d3.event.scale);  
         }
     }
 
     $(".list-group-item").click(function(e) {
       window.controller.highlighted($(this).attr("id")); 
-      console.log($(this).attr("id"));
       //e.preventDefault();
     });
 
     window.view.svg.selectAll("div.panel").on("click", function(d,i) {
-        console.log(d.uid);
         window.controller.selected(d.uid);
         
     });
 
     window.view.svg.selectAll("rect.expanderContractor").on('click', function(d,i) {
-        console.log(i,d);
       window.controller.expandContract(d.target.uid);  
     });
 
