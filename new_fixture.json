@@ -1,0 +1,558 @@
+[
+{
+  "pk": 1, 
+  "model": "api.provider", 
+  "fields": {
+    "description": "University Hospital Southampton NHS Foundation Trust provides services to some 1.3 million people living in Southampton and south Hampshire, plus specialist services such as neurosciences, cardiac services and children's intensive care to more than 3 million people in central southern England and the Channel Islands.", 
+    "slug": "suht", 
+    "name": "Southampton University Hospital Trust"
+  }
+},
+{
+  "pk": 2, 
+  "model": "api.provider", 
+  "fields": {
+    "description": "Portsmouth Hospitals NHS Trust provides a range of acute services at Queen Alexandra Hospital.", 
+    "slug": "phnt", 
+    "name": "Portsmouth Hospitals NHS Trust"
+  }
+},
+{
+  "pk": 1, 
+  "model": "api.category", 
+  "fields": {
+    "slug": "respiratory", 
+    "name": "Respiratory"
+  }
+},
+{
+  "pk": 2, 
+  "model": "api.category", 
+  "fields": {
+    "slug": "urinary", 
+    "name": "Urinary"
+  }
+},
+{
+  "pk": 3, 
+  "model": "api.category", 
+  "fields": {
+    "slug": "nervous", 
+    "name": "Nervous"
+  }
+},
+{
+  "pk": 1, 
+  "model": "api.diagnosis", 
+  "fields": {
+    "category": 1, 
+    "slug": "pneumonia", 
+    "name": "Pneumonia"
+  }
+},
+{
+  "pk": 2, 
+  "model": "api.diagnosis", 
+  "fields": {
+    "category": 2, 
+    "slug": "uti", 
+    "name": "Urinary Tract Infection"
+  }
+},
+{
+  "pk": 3, 
+  "model": "api.diagnosis", 
+  "fields": {
+    "category": 3, 
+    "slug": "meningitis", 
+    "name": "Meningitis"
+  }
+},
+{
+  "pk": 4, 
+  "model": "api.diagnosis", 
+  "fields": {
+    "category": 1, 
+    "slug": "rti-cacq", 
+    "name": "RTI (Community)"
+  }
+},
+{
+  "pk": 5, 
+  "model": "api.diagnosis", 
+  "fields": {
+    "category": 1, 
+    "slug": "rti-hacq", 
+    "name": "RTI (Hospital)"
+  }
+},
+{
+  "pk": 1, 
+  "model": "api.decisiontree", 
+  "fields": {
+    "decision_structure": "{\"act\":[{\"act\":[{\"act\":[{\"act\":[{\"act\":[{\"id\":\"opt1\",\"next\":\"t\"},{\"id\":\"opt2\",\"next\":\"t\"}],\"id\":\"toma\",\"next\":\"q\"},{\"id\":\"opt3\",\"next\":\"t\"},{\"act\":[{\"id\":\"opt3\",\"next\":\"t\"},{\"id\":\"opt2\",\"next\":\"t\"}],\"id\":\"toma\",\"next\":\"q\"}],\"id\":\"pall\",\"next\":\"q\"},{\"act\":[{\"act\":[{\"id\":\"opt1\",\"next\":\"t\"},{\"id\":\"opt2\",\"next\":\"t\"}],\"id\":\"toma\",\"next\":\"q\"},{\"id\":\"opt3\",\"next\":\"t\"},{\"act\":[{\"id\":\"opt3\",\"next\":\"t\"},{\"id\":\"opt2\",\"next\":\"t\"}],\"id\":\"toma\",\"next\":\"q\"}],\"id\":\"pall\",\"next\":\"q\"},{\"act\":[{\"act\":[{\"id\":\"opt4\",\"next\":\"t\"},{\"id\":\"opt5\",\"next\":\"t\"}],\"id\":\"toma\",\"next\":\"q\"},{\"act\":[{\"id\":\"opt2\",\"next\":\"t\"},{\"id\":\"opt2\",\"next\":\"t\"}],\"id\":\"toma\",\"next\":\"q\"},{\"act\":[{\"id\":\"opt2\",\"next\":\"t\"},{\"id\":\"opt2\",\"next\":\"t\"}],\"id\":\"toma\",\"next\":\"q\"}],\"id\":\"pall\",\"next\":\"q\"}],\"id\":\"c65s\",\"next\":\"q\"},{\"id\":\"opt8\",\"next\":\"t\"}],\"id\":\"cacq\",\"next\":\"q\"},{\"act\":[{\"id\":\"opt6\",\"next\":\"t\"},{\"id\":\"opt7\",\"next\":\"t\"}],\"id\":\"hcopd\",\"next\":\"q\"}],\"id\":\"lcon\",\"next\":\"q\"}", 
+    "published": true, 
+    "provider": 1, 
+    "diagnosis": 1, 
+    "created": "2013-11-22T15:25:25.351Z"
+  }
+},
+{
+  "pk": 2, 
+  "model": "api.decisiontree", 
+  "fields": {
+    "decision_structure": null, 
+    "published": false, 
+    "provider": 1, 
+    "diagnosis": 1, 
+    "created": "2013-11-22T15:25:34.839Z"
+  }
+},
+{
+  "pk": 3, 
+  "model": "api.decisiontree", 
+  "fields": {
+    "decision_structure": null, 
+    "published": true, 
+    "provider": 1, 
+    "diagnosis": 2, 
+    "created": "2013-11-22T15:26:53.841Z"
+  }
+},
+{
+  "pk": 5, 
+  "model": "api.decisiontree", 
+  "fields": {
+    "decision_structure": null, 
+    "published": false, 
+    "provider": 2, 
+    "diagnosis": 1, 
+    "created": "2013-11-22T15:27:41.986Z"
+  }
+},
+{
+  "pk": 6, 
+  "model": "api.decisiontree", 
+  "fields": {
+    "decision_structure": "{\"next\":\"q\",\"id\":\"_DevAft24H\",\"act\":[{\"next\":\"q\",\"id\":\"_KnoMrsPat\",\"act\":[{\"next\":\"q\",\"id\":\"_GraOrgIde\",\"act\":[{\"next\":\"q\",\"id\":\"_PenAll\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"X\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"_PenAll\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"X\",\"next\":\"t\"}]}]},{\"next\":\"q\",\"id\":\"_GraOrgIde\",\"act\":[{\"next\":\"q\",\"id\":\"_PenAll\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"X\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"_PenAll\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"X\",\"next\":\"t\"}]}]}]},{\"next\":\"q\",\"id\":\"_KnoMrsPat\",\"act\":[{\"next\":\"q\",\"id\":\"_GraOrgIde\",\"act\":[{\"next\":\"q\",\"id\":\"_PenAll\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"X\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"_PenAll\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"X\",\"next\":\"t\"}]}]},{\"next\":\"q\",\"id\":\"_GraOrgIde\",\"act\":[{\"next\":\"q\",\"id\":\"_PenAll\",\"act\":[{\"id\":\"_R2\",\"next\":\"t\"},{\"id\":\"_R2\",\"next\":\"t\"},{\"id\":\"X\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"_PenAll\",\"act\":[{\"id\":\"_R1\",\"next\":\"t\"},{\"id\":\"_R1\",\"next\":\"t\"},{\"id\":\"X\",\"next\":\"t\"}]}]}]}]}", 
+    "published": true, 
+    "provider": 1, 
+    "diagnosis": 3, 
+    "created": "2014-01-07T21:35:27.659Z"
+  }
+},
+{
+  "pk": 7, 
+  "model": "api.decisiontree", 
+  "fields": {
+    "decision_structure": "{\"next\":\"q\",\"id\":\"rticacq_PneSev\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_Cop\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_PenAll\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_Asp\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"rticacq_R4\",\"next\":\"t\"},{\"id\":\"rticacq_R3\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"rticacq_R2\",\"next\":\"t\"},{\"id\":\"rticacq_R1\",\"next\":\"t\"}]}]},{\"next\":\"q\",\"id\":\"rticacq_Asp\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"rticacq_R5\",\"next\":\"t\"},{\"id\":\"rticacq_R3\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"rticacq_R5\",\"next\":\"t\"},{\"id\":\"rticacq_R1\",\"next\":\"t\"}]}]},{\"next\":\"q\",\"id\":\"rticacq_Asp\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"rticacq_R5\",\"next\":\"t\"},{\"id\":\"rticacq_R3\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"rticacq_R5\",\"next\":\"t\"},{\"id\":\"rticacq_R1\",\"next\":\"t\"}]}]}]},{\"next\":\"q\",\"id\":\"rticacq_PenAll\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_Asp\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"rticacq_R4\",\"next\":\"t\"},{\"id\":\"rticacq_R3\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"rticacq_R2\",\"next\":\"t\"},{\"id\":\"rticacq_R1\",\"next\":\"t\"}]}]},{\"next\":\"q\",\"id\":\"rticacq_Asp\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"rticacq_R5\",\"next\":\"t\"},{\"id\":\"rticacq_R3\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"rticacq_R5\",\"next\":\"t\"},{\"id\":\"rticacq_R1\",\"next\":\"t\"}]}]},{\"next\":\"q\",\"id\":\"rticacq_Asp\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"rticacq_R5\",\"next\":\"t\"},{\"id\":\"rticacq_R3\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"rticacq_R5\",\"next\":\"t\"},{\"id\":\"rticacq_R1\",\"next\":\"t\"}]}]}]}]},{\"next\":\"q\",\"id\":\"rticacq_Cop\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_PenAll\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_Asp\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"rticacq_R7\",\"next\":\"t\"},{\"id\":\"rticacq_R8\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"rticacq_R7\",\"next\":\"t\"},{\"id\":\"rticacq_R6\",\"next\":\"t\"}]}]},{\"next\":\"q\",\"id\":\"rticacq_Asp\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"rticacq_R7\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"rticacq_R7\",\"next\":\"t\"}]}]},{\"next\":\"q\",\"id\":\"rticacq_Asp\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"rticacq_R7\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"rticacq_R7\",\"next\":\"t\"}]}]}]},{\"next\":\"q\",\"id\":\"rticacq_PenAll\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_Asp\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"rticacq_R7\",\"next\":\"t\"},{\"id\":\"rticacq_R8\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"rticacq_R7\",\"next\":\"t\"},{\"id\":\"rticacq_R6\",\"next\":\"t\"}]}]},{\"next\":\"q\",\"id\":\"rticacq_Asp\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"rticacq_R7\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"rticacq_R7\",\"next\":\"t\"}]}]},{\"next\":\"q\",\"id\":\"rticacq_Asp\",\"act\":[{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"rticacq_R7\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rticacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"rticacq_R7\",\"next\":\"t\"}]}]}]}]}]}", 
+    "published": false, 
+    "provider": 1, 
+    "diagnosis": 4, 
+    "created": "2014-01-07T22:15:50.550Z"
+  }
+},
+{
+  "pk": 8, 
+  "model": "api.decisiontree", 
+  "fields": {
+    "decision_structure": "{\"next\":\"q\",\"id\":\"rtihacq_Ons\",\"act\":[{\"next\":\"q\",\"id\":\"rtihacq_Sev\",\"act\":[{\"next\":\"q\",\"id\":\"rtihacq_PenAll\",\"act\":[{\"next\":\"q\",\"id\":\"rtihacq_FirOrSec\",\"act\":[{\"id\":\"rtihacq_R3\",\"next\":\"t\"},{\"id\":\"rtihacq_R2\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rtihacq_FirOrSec\",\"act\":[{\"id\":\"rtihacq_R4\",\"next\":\"t\"},{\"id\":\"rtihacq_R2\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rtihacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"rtihacq_R2\",\"next\":\"t\"}]}]},{\"next\":\"q\",\"id\":\"rtihacq_PenAll\",\"act\":[{\"next\":\"q\",\"id\":\"rtihacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"rtihacq_R1\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rtihacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"rtihacq_R1\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rtihacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"rtihacq_R1\",\"next\":\"t\"}]}]}]},{\"next\":\"q\",\"id\":\"rtihacq_Sev\",\"act\":[{\"next\":\"q\",\"id\":\"rtihacq_PenAll\",\"act\":[{\"next\":\"q\",\"id\":\"rtihacq_FirOrSec\",\"act\":[{\"id\":\"rtihacq_R4\",\"next\":\"t\"},{\"id\":\"rtihacq_R3\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rtihacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"rtihacq_R4\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rtihacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"X\",\"next\":\"t\"}]}]},{\"next\":\"q\",\"id\":\"rtihacq_PenAll\",\"act\":[{\"next\":\"q\",\"id\":\"rtihacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"rtihacq_R2\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rtihacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"rtihacq_R2\",\"next\":\"t\"}]},{\"next\":\"q\",\"id\":\"rtihacq_FirOrSec\",\"act\":[{\"id\":\"X\",\"next\":\"t\"},{\"id\":\"rtihacq_R2\",\"next\":\"t\"}]}]}]}]}", 
+    "published": false, 
+    "provider": 1, 
+    "diagnosis": 5, 
+    "created": "2014-01-07T22:27:16.976Z"
+  }
+},
+{
+  "pk": 1, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "lcon", 
+    "information": "Dummy info", 
+    "answers": "[\"Yes\",\"No\"]", 
+    "label": "Evidence of consolidation?"
+  }
+},
+{
+  "pk": 2, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "hcopd", 
+    "information": "dummy", 
+    "answers": "[\"Yes\",\"No\"]", 
+    "label": "History of COPD?"
+  }
+},
+{
+  "pk": 3, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "cacq", 
+    "information": "dummy", 
+    "answers": "[\"Yes\",\"No\"]", 
+    "label": "Community acquired?"
+  }
+},
+{
+  "pk": 4, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "c65s", 
+    "information": "dummy", 
+    "answers": "[\"0-1\",\"2\",\"3-5\"]", 
+    "label": "CURB-65 Score"
+  }
+},
+{
+  "pk": 5, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "pall", 
+    "information": "Cefotaxime is contra-indicated for patients with a history of severe penicillin allergy (anaphylaxis or other Type I hypersensitivity reaction or severe skin reaction).\r\n\r\nCefotaxime may be prescribed with caution to patients with a history of mild penicillin allergy (non-Type I reactions or mild skin reactions).", 
+    "answers": "[\"None\",\"Mild\",\"Severe\"]", 
+    "label": "Penicillin Allergy?"
+  }
+},
+{
+  "pk": 6, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "toma", 
+    "information": "Dummy", 
+    "answers": "[\"Yes\",\"No\"]", 
+    "label": "Tolerating oral medication & absorbing?"
+  }
+},
+{
+  "pk": 7, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "sample", 
+    "information": "This should not appear in any...", 
+    "answers": "\"\"", 
+    "label": "Sample"
+  }
+},
+{
+  "pk": 8, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "_DevAft24H", 
+    "information": "Patients who develop meningitis after >24hrs of prior therapy are at risk of unexpected or antibiotic-resistant pathogens and treatment options should be discussed with an infection specialist urgently.", 
+    "answers": "[\"Yes\",\"No\"]", 
+    "label": "Developed after >24hrs prior antibiotic therapy?"
+  }
+},
+{
+  "pk": 9, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "_KnoMrsPat", 
+    "information": "Patients known to be previously or recently colonised or infected with MRSA should be discussed with an infection specialist who can advise on appropriate therapy that will penetrate the CNS and to which the isolate is susceptible.", 
+    "answers": "[\"Yes\",\"No\"]", 
+    "label": "Known MRSA-colonised/infected patient?"
+  }
+},
+{
+  "pk": 10, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "_GraOrgIde", 
+    "information": "Rifampicin is effective in the treatment of Gram-positive organisms forming biofilms on prosthetic devices.Use of this drug should be reserved for patients for whom a biofilm-active agent is essential (to avoid selecting for rifampicin resistance unnecessarily).", 
+    "answers": "[\"Yes\",\"No\"]", 
+    "label": "Gram-positive organism identified by Gram stain AND prosthetic material in situ in CNS?"
+  }
+},
+{
+  "pk": 11, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "_PenAll", 
+    "information": "Cefotaxime is contra-indicated for patients with a history of severe penicillin allergy (anaphylaxis or other Type I hypersensitivity reaction or severe skin reaction).\r\n\r\nCefotaxime may be prescribed with caution to patients with a history of mild penicillin allergy (non-Type I reactions or mild skin reactions).", 
+    "answers": "[\"None\",\"Mild\",\"Severe\"]", 
+    "label": "Penicillin Allergy?"
+  }
+},
+{
+  "pk": 12, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "rticacq_PneSev", 
+    "information": "Assessment of severity should be guided by clinical judgement.\r\nConsider using the validated severity score for community-acquired pneumonia from the British Thoracic Society - CURB-65.\r\nScore one point each for:\r\na) Confusion (AMT 8 or lower)\r\nb) Urea >7\r\nc) Respiratory rate 30/min or above\r\nd) Blood pressure <90 systolic or <61 diastolic\r\ne) Age 65 or above\r\n\r\nScore 0-2 = mild-to-moderate\r\nScore 3-5 = severe\r\nNot validated for COPD\r\nBroad-spectrum antibiotic regimens are recommended initially for patients with severe infection to minimise the risk of harm from treatment failure.\r\nCulture and susceptibility results should be used to target therapy to pathogens.", 
+    "answers": "[\"Mild-to-Moderate\",\"Severe\"]", 
+    "label": "Pneumonia Severity"
+  }
+},
+{
+  "pk": 13, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "rticacq_Cop", 
+    "information": "Treatment regimens for infective exacerbation of COPD are similar to those for community-acquired pneumonia and include cover for key pathogens: Streptococcus pneumoniae; Haemophilus influenzae; and Moraxella catarrhalis.\r\nPrescribers should review previous culture and susceptibility results for these patients when selecting therapy.", 
+    "answers": "[\"COPD\",\"No\"]", 
+    "label": "COPD?"
+  }
+},
+{
+  "pk": 14, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "rticacq_PenAll", 
+    "information": "Benzylpenicillin and amoxicillin are contra-indicated for patients with a history of mild penicillin allergy (non-Type I reactions or mild skin reactions) and severe penicillin allergy (anaphylaxis or other Type I hypersensitivity reaction or severe skin reaction) \r\nSuitable alternatives such as doxycycline or chloramphenicol are recommended.", 
+    "answers": "[\"None\",\"Severe\",\"Mild\"]", 
+    "label": "Penicillin allergy?"
+  }
+},
+{
+  "pk": 15, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "rticacq_Asp", 
+    "information": "Additional anaerobic cover with metronidazole or chloramphenicol is recommended for patients with suspected aspiration and subsequent bacterial pneumonia (infiltrate on chest X-ray).", 
+    "answers": "[\"Aspiration\",\"No\"]", 
+    "label": "Aspiration?"
+  }
+},
+{
+  "pk": 16, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "rticacq_FirOrSec", 
+    "information": "First-line treatment regimens are the preferred recommendation of local guideline authors.\r\nSecond-line regimens should be considered for patients:\r\nrecently exposed to first-line antibiotics;\r\nfailing first-line antibiotics;\r\naccording to relevant culture and susceptibility results;\r\nor with contra-indication to first-line antibiotics.", 
+    "answers": "[\"Second\",\"First\"]", 
+    "label": "First-line or Second-line/Alternative treatment"
+  }
+},
+{
+  "pk": 17, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "rtihacq_Ons", 
+    "information": "Hospital/Healthcare-associated pneumonia (HAP) develops after at least 48 hours in a healthcare environment.\r\nEarly-onset HAP is defined as onset between 48hrs and 5 days after admission and is typically associated with pathogens susceptible to relatively narrow-spectrum antibiotics such as doxycycline.\r\nLate-onset HAP is defined as onset more than 5 days after admission and can be associated with antibiotic-resistant pathogens requiring broader spectrum antibiotics.", 
+    "answers": "[\"48hrs - 5 days\",\">5 days\"]", 
+    "label": "Onset"
+  }
+},
+{
+  "pk": 18, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "rtihacq_Sev", 
+    "information": "A validated severity scoring system for HAP is not available.\r\nClinical judgement should be used to gauge severity and System Inflammatory Response Syndrome criteria may be considered.\r\nBroad-spectrum antibiotic regimens are recommended initially for patients with severe infection to minimise the risk of harm from treatment failure.\r\nCulture and susceptibility results should be used to target therapy to pathogens.", 
+    "answers": "[\"Severe\",\"Mild/Moderate\"]", 
+    "label": "Severity"
+  }
+},
+{
+  "pk": 19, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "rtihacq_PenAll", 
+    "information": "Piperacillin-tazobactam is contra-indicated for patients with a history of mild penicillin allergy (non-Type I reactions or mild skin reactions) and severe penicillin allergy (anaphylaxis or other Type I hypersensitivity reaction or severe skin reaction).\r\n\r\nCeftazidime may be prescribed with caution for patients with a history of mild penicillin allergy (non-Type I reactions or mild skin reactions).", 
+    "answers": "[\"None\",\"Severe\",\"Mild\"]", 
+    "label": "Penicillin allergy"
+  }
+},
+{
+  "pk": 20, 
+  "model": "api.question", 
+  "fields": {
+    "qid": "rtihacq_FirOrSec", 
+    "information": "First-line treatment regimens are the preferred recommendation of local guideline authors.\r\nSecond-line regimens should be considered for patients:\r\nwith previous or current Pseudomonas;\r\nrecently exposed to first-line antibiotics;\r\nfailing first-line antibiotics;\r\naccording to relevant culture and susceptibility results;\r\nor with contra-indication to first-line antibiotics.", 
+    "answers": "[\"Second-line\",\"First-line\"]", 
+    "label": "First-line or Second-line/Alternative treatment?"
+  }
+},
+{
+  "pk": 1, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "opt1", 
+    "details": "First-line\\nDoxicycline 200mg\\noral 12-hourly for 48hrs then 200mg once-daily\\n\\nSecond-line\\n[recent doxycycline]\\nAmoxicillin 500mg\\noral 8-hourly"
+  }
+},
+{
+  "pk": 2, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "opt2", 
+    "details": "Chloramphenicol\\n12.5mg/kg IV 6-hourly"
+  }
+},
+{
+  "pk": 3, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "opt3", 
+    "details": "Doxycycline\\n200mg oral 12-hourly for 48hours\\nthen 200mg once-daily"
+  }
+},
+{
+  "pk": 4, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "opt4", 
+    "details": "Benzylpenicillin\\n1.2-2.4g iv 6-hourly plus\\nDoxycycline 200mg oral 12-hourly for 48hrs then 200mg once-daily"
+  }
+},
+{
+  "pk": 5, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "opt5", 
+    "details": "Benzylpenicillin\\n1.2-2.4g iv 6-hourly plus\\nClarithromysin 500mg iv 12-hourly"
+  }
+},
+{
+  "pk": 6, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "opt6", 
+    "details": "Go to COPD guideline (not pneumonia)"
+  }
+},
+{
+  "pk": 7, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "opt7", 
+    "details": "Go to RTI guideline (not pneumonia)"
+  }
+},
+{
+  "pk": 8, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "opt8", 
+    "details": "Hospital-Acquired Go to HAP guideline"
+  }
+},
+{
+  "pk": 9, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "sample", 
+    "details": "This should not show up"
+  }
+},
+{
+  "pk": 10, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "X", 
+    "details": "Consultant clinician to contact medical microbiologist."
+  }
+},
+{
+  "pk": 11, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "_R1", 
+    "details": "Cefotaxime 2g iv 4-hourly. Remember to document in the medical notes: the indication, antibiotic, route, dose and planned duration. Review diagnosis at 48-72 hours and adjust therapy according to clinical response and results of investigations."
+  }
+},
+{
+  "pk": 12, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "_R2", 
+    "details": "Cefotaxime 2g iv 4-hourly + Rifampicin 600mg po 12-hourly. Remember to document in the medical notes: the indication, antibiotic, route, dose and planned duration. Review diagnosis at 48-72 hours and adjust therapy according to clinical response and results of investigations."
+  }
+},
+{
+  "pk": 13, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "rticacq_R1", 
+    "details": "Doxycycline 200mg po 12-hourly for 48h then 200mg po once-daily for 5-7 days. Remember to document in the medical notes: the indication, antibiotic, route, dose and planned duration. Review diagnosis at 48-72 hours and adjust therapy according to clinical response and results of investigations."
+  }
+},
+{
+  "pk": 14, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "rticacq_R2", 
+    "details": "Amoxicillin 500mg po 8-hourly for 5-7 days. Remember to document in the medical notes: the indication, antibiotic, route, dose and planned duration. Review diagnosis at 48-72 hours and adjust therapy according to clinical response and results of investigations."
+  }
+},
+{
+  "pk": 15, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "rticacq_R3", 
+    "details": "[Doxycycline 200mg po 12-hourly for 48h then 200mg po once-daily] + Metronidazole 400mg po 8-hourly for 7 days. Remember to document in the medical notes: the indication, antibiotic, route, dose and planned duration. Review diagnosis at 48-72 hours and adjust therapy according to clinical response and results of investigations."
+  }
+},
+{
+  "pk": 16, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "rticacq_R4", 
+    "details": "Amoxicillin 500mg po/iv 8-hourly + Metronidazole 400mg po / 500mg iv 8-hourly for 7 days. Remember to document in the medical notes: the indication, antibiotic, route, dose and planned duration. Review diagnosis at 48-72 hours and adjust therapy according to clinical response and results of investigations."
+  }
+},
+{
+  "pk": 17, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "rticacq_R5", 
+    "details": "Chloramphenicol 12.5mg/kg iv 6-hourly for 5-7 days. Remember to document in the medical notes: the indication, antibiotic, route, dose and planned duration. Review diagnosis at 48-72 hours and adjust therapy according to clinical response and results of investigations."
+  }
+},
+{
+  "pk": 18, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "rticacq_R6", 
+    "details": "Benzylpenicillin 1.2-2.4g iv 6-hourly + either [Doxycycline 200mg po 12-hourly for 48h then 200mg po once-daily] or Clarithromycin 500mg iv 12-hourly for 7-10 days. Remember to document in the medical notes: the indication, antibiotic, route, dose and planned duration. Review diagnosis at 48-72 hours and adjust therapy according to clinical response and results of investigations."
+  }
+},
+{
+  "pk": 19, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "rticacq_R7", 
+    "details": "Chloramphenicol 12.5mg/kg iv 6-hourly for 7-10 days. Remember to document in the medical notes: the indication, antibiotic, route, dose and planned duration. Review diagnosis at 48-72 hours and adjust therapy according to clinical response and results of investigations."
+  }
+},
+{
+  "pk": 20, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "rticacq_R8", 
+    "details": "Benzylpenicillin 1.2-2.4g iv 6-hourly + Metronidazole 400mg po / 500mg iv 8-hourly + either [Doxycycline 200mg po 12-hourly for 48h then 200mg po once-daily] or Clarithromycin 500mg iv 12-hourly for 7-10 days. Remember to document in the medical notes: the indication, antibiotic, route, dose and planned duration. Review diagnosis at 48-72 hours and adjust therapy according to clinical response and results of investigations."
+  }
+},
+{
+  "pk": 21, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "rtihacq_R4", 
+    "details": "Ceftazidime 1-2g iv 8-hourly. Remember to document in the medical notes: the indication, antibiotic, route, dose and planned duration. Review diagnosis at 48-72 hours and adjust therapy according to clinical response and results of investigations."
+  }
+},
+{
+  "pk": 22, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "rtihacq_R3", 
+    "details": "Piperacillin-tazobactam 4.5g iv 8-hourly. Remember to document in the medical notes: the indication, antibiotic, route, dose and planned duration. Review diagnosis at 48-72 hours and adjust therapy according to clinical response and results of investigations."
+  }
+},
+{
+  "pk": 23, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "rtihacq_R2", 
+    "details": "Chloramphenicol 12.5mg/kg iv 6-hourly for 5-7 days. Remember to document in the medical notes: the indication, antibiotic, route, dose and planned duration. Review diagnosis at 48-72 hours and adjust therapy according to clinical response and results of investigations."
+  }
+},
+{
+  "pk": 24, 
+  "model": "api.treatment", 
+  "fields": {
+    "tid": "rtihacq_R1", 
+    "details": "Doxycycline 200mg po 12-hourly for 48h then 200mg po once-daily for 7 days. Remember to document in the medical notes: the indication, antibiotic, route, dose and planned duration. Review diagnosis at 48-72 hours and adjust therapy according to clinical response and results of investigations."
+  }
+}
+]
