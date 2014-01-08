@@ -440,7 +440,7 @@ View.prototype = {
     q.append("p").text(function(d) {return d.desc;});
 
     t.text(function(d) {return d.id});
-    t.append("p").text(function(d) {return d.text;});
+    t.append("p").html(function(d) {return  d.desc.replace(/\\n/g, "<br />"); });
 
 
   },
